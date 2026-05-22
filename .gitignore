@@ -1,0 +1,42 @@
+# IDE and system files
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+Thumbs.db
+
+# security and secrets
+.env
+.env.local
+.env.*.local
+*.env
+config/secrets/*
+
+# front-end
+front-end/node_modules/
+front-end/.pnpm-store/
+
+front-end/.next/
+front-end/out/
+
+front-end/build/
+front-end/dist/
+
+front-end/.next-env.d.ts
+front-end/npm-debug.log*
+front-end/yarn-debug.log*
+front-end/yarn-error.log*
+
+# back-end
+back-end/target/
+back-end/*.jar
+back-end/*.war
+
+back-end/build/
+back-end/.gradle/
+back-end/bin/
+
+back-end/hs_err_pid*
+back-end/replay_pid*
