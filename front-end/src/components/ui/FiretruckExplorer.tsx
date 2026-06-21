@@ -74,11 +74,11 @@ export default function FiretruckExplorer() {
       y: 80,
       width: 150,
       height: 50,
-      color: "#7f8c8d",
+      color: "#a07cf8",
       details:
-        "Git repository containing the source code for the Next.js frontend, Spring Boot backend, database configurations, and OKD deployment manifests. Pushing to the main branch targets development, while pushing git tags targets production.",
+        "Git repository containing the source code for the Next.js frontend, Spring Boot backend, database configurations, and OKD deployment manifests. Pushing to the main branch targets staging, while pushing git tags targets production.",
       commandsOrCode: [
-        "# Deploy changes to development environment",
+        "# Deploy changes to staging environment",
         "git push origin main",
         "",
         "# Deploy changes to production environment",
@@ -94,9 +94,9 @@ export default function FiretruckExplorer() {
       y: 220,
       width: 150,
       height: 60,
-      color: "#3498db",
+      color: "#00e5ff",
       details:
-        "Runs the automated CI/CD pipeline. The CI steps (compiling, code quality linting, testing) are identical in all runs. The CD deployment changes based on the git ref: a main branch push builds and deploys to the OKD Development namespace, while a version tag push (v*) builds and deploys to the OKD Production namespace.",
+        "Runs the automated CI/CD pipeline. The CI steps compile the Java/React code and run tests. If tests pass, a Docker image is built and pushed to the GitHub Container Registry (GHCR). A main branch push deploys to the OKD Staging namespace, while a version tag push (v*) deploys to the OKD Production namespace.",
       commandsOrCode: [
         "on:",
         "  push:",
@@ -117,9 +117,9 @@ export default function FiretruckExplorer() {
         "      - name: Deploy to OKD Production Namespace",
         "        if: startsWith(github.ref, 'refs/tags/')",
         "        run: oc apply -f k8s/production/",
-        "      - name: Deploy to OKD Development Namespace",
+        "      - name: Deploy to OKD Staging Namespace",
         "        if: \"!startsWith(github.ref, 'refs/tags/')\"",
-        "        run: oc apply -f k8s/development/",
+        "        run: oc apply -f k8s/staging/",
       ],
     },
     {
@@ -130,9 +130,9 @@ export default function FiretruckExplorer() {
       y: 400,
       width: 150,
       height: 60,
-      color: "#e67e22",
+      color: "#ffab40",
       details:
-        "Physical firetruck robot featuring flame phototransistors to determine fire direction and a water sensor in the tank. The ESP32 client establishes a persistent connection and streams sensor data over WebSockets in real time.",
+        "Physical firetruck robot featuring flame phototransistors to determine fire direction and a water sensor in the tank. Streams sensor data over WebSockets (STOMP protocol) in real time. Authenticates using a security token and X-Device-ID in headers, and transmits heartbeats to prove it is alive (marked offline if inactive for 30s).",
       commandsOrCode: [
         "// Telemetry payload format sent from ESP32",
         "{",
@@ -146,87 +146,67 @@ export default function FiretruckExplorer() {
       ],
     },
     {
-      id: "opnsense",
-      name: "OPNsense Firewall",
-      role: "Network Gateway",
-      x: 290,
-      y: 400,
-      width: 150,
-      height: 60,
-      color: "#1abc9c",
-      details:
-        "OPNsense gateway securing the environment. The ESP32 is locked into an isolated IoT VLAN/SSID. The firewall allows outbound WebSocket connections to the OKD cluster but blocks inbound connections to protect the embedded system.",
-      commandsOrCode: [
-        "Rule: PASS IoT_VLAN to OKD_Cluster Port 443",
-        "Rule: BLOCK WAN to IoT_VLAN",
-        "Rule: BLOCK IoT_VLAN to Local_Corporate_VLAN",
-      ],
-    },
-    {
       id: "dev_ingress",
-      name: "Dev Ingress",
+      name: "Staging Ingress",
       role: "OKD Router",
       x: 570,
       y: 100,
       width: 110,
       height: 40,
-      color: "#95a5a6",
+      color: "#00e5ff",
       details:
-        "Development ingress route in OKD. Routes developer web requests to the development environment frontend/backend pods and proxies WebSocket connections.",
+        "Staging ingress route in OKD. An Ingress acts as the entry point (reverse proxy) for external traffic entering the cluster. It routes client web requests and ESP32 WebSocket connections to the staging frontend and backend pods.",
       commandsOrCode: [
         "apiVersion: route.openshift.io/v1",
         "kind: Route",
         "metadata:",
-        "  name: dev-route",
+        "  name: staging-route",
         "spec:",
-        "  host: dev.ucll-portfolio.be",
+        "  host: staging.ucll-portfolio.be",
       ],
     },
     {
       id: "dev_frontend",
-      name: "Dev Frontend",
+      name: "Staging Frontend",
       role: "Next.js Pod",
       x: 570,
       y: 180,
       width: 110,
       height: 40,
-      color: "#34495e",
+      color: "#a07cf8",
       details:
-        "Development Next.js application container pod serving the dev dashboard layout, letting developers view debug metrics and logs.",
-      commandsOrCode: ["environment: DEVELOPMENT", "replicas: 1"],
+        "Staging Next.js application container pod serving the dashboard layout, letting users view live metrics and logs. Utilizes the custom useWebSocket.ts hook to stay persistently connected to the backend.",
+      commandsOrCode: ["environment: STAGING", "replicas: 1"],
     },
     {
       id: "dev_backend",
-      name: "Dev Backend",
+      name: "Staging Backend",
       role: "Spring Boot Pod",
       x: 720,
       y: 100,
       width: 110,
       height: 40,
-      color: "#2ecc71",
+      color: "#00b0ff",
       details:
-        "Development Spring Boot backend pod. Receives WebSocket data streams from the firetruck, processes the metrics, stores data in the dev database, and broadcasts updates to dev clients.",
+        "Staging Spring Boot backend pod. Receives WebSocket STOMP streams from the firetruck, processes the metrics, stores data in the staging database, and pushes updates directly to the staging frontend client. API versioning starts with /v1/.",
       commandsOrCode: [
-        '@Profile("development")',
+        '@Profile("staging")',
         "@Component",
-        "public class DevTelemetryHandler { ... }",
+        "public class StagingTelemetryHandler { ... }",
       ],
     },
     {
       id: "dev_db",
-      name: "Dev Database",
+      name: "Staging Database",
       role: "Database Pod",
       x: 870,
       y: 100,
       width: 110,
       height: 40,
-      color: "#9b59b6",
+      color: "#1de9b6",
       details:
-        "Isolated development database storing test run records, allowing developers to inspect data payloads during local test runs.",
-      commandsOrCode: [
-        "database: h2-in-memory",
-        "connection-url: jdbc:h2:mem:devdb",
-      ],
+        "Staging database storing test run records. Automatically managed and migrated by Flyway upon backend startup.",
+      commandsOrCode: ["database: postgresql-staging", "migrations: flyway"],
     },
     {
       id: "prod_ingress",
@@ -236,9 +216,9 @@ export default function FiretruckExplorer() {
       y: 300,
       width: 110,
       height: 40,
-      color: "#e74c3c",
+      color: "#ff1744",
       details:
-        "Production ingress route in OKD. Routes live production domain traffic to the frontend and backend production pods, ensuring secure TLS/SSL termination and reliable WebSocket connections.",
+        "Production ingress route in OKD. Exposes the cluster to external internet traffic, providing secure TLS termination and routing live web dashboard requests and ESP32 WebSocket streams to the production frontend and backend pods.",
       commandsOrCode: [
         "apiVersion: route.openshift.io/v1",
         "kind: Route",
@@ -258,9 +238,9 @@ export default function FiretruckExplorer() {
       y: 380,
       width: 110,
       height: 40,
-      color: "#34495e",
+      color: "#a07cf8",
       details:
-        "Production Next.js application frontend. Subscribes to the production backend WebSocket topic to display live system status and historical telemetry logs.",
+        "Production Next.js application frontend. Subscribes to the production backend STOMP topic using useWebSocket.ts to display live system status and historical telemetry logs.",
       commandsOrCode: [
         "environment: PRODUCTION",
         "replicas: 2",
@@ -275,15 +255,15 @@ export default function FiretruckExplorer() {
       y: 300,
       width: 110,
       height: 40,
-      color: "#2ecc71",
+      color: "#00b0ff",
       details:
-        "Production Spring Boot application pod. Integrates the WebSocket message broker endpoint. Receives live C++ ESP32 client data packets, persists logs to the PostgreSQL production database, and publishes updates to the dashboard topic.",
+        "Production Spring Boot application pod. Integrates the STOMP WebSocket endpoint. Receives live telemetry from the ESP32 firetruck, persists logs to the PostgreSQL production database, and pushes real-time updates directly to the frontend clients.",
       commandsOrCode: [
         '@Profile("production")',
         "@Service",
-        "public class ProductionTelemetryBroker {",
+        "public class ProductionTelemetryHandler {",
         "  // Saves logs to PostgreSQL",
-        "  // Broadcasts to /topic/live",
+        "  // Broadcasts updates via STOMP",
         "}",
       ],
     },
@@ -295,13 +275,10 @@ export default function FiretruckExplorer() {
       y: 300,
       width: 110,
       height: 40,
-      color: "#9b59b6",
+      color: "#1de9b6",
       details:
-        "Persistent production database storing the official telemetry data history, flame sensor records, and water level changes.",
-      commandsOrCode: [
-        "database: postgresql",
-        "connection-url: jdbc:postgresql://db:5432/prod",
-      ],
+        "Production PostgreSQL database storing the official telemetry data history, flame sensor logs, and water levels. Automatically managed and migrated by Flyway upon backend startup.",
+      commandsOrCode: ["database: postgresql", "migrations: flyway"],
     },
   ];
 
@@ -368,26 +345,34 @@ export default function FiretruckExplorer() {
           backgroundColor: "#161b22",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "10px 20px",
+          flexWrap: "wrap",
         }}
       >
-        <span style={{ fontWeight: "bold", fontSize: "0.9rem" }}>
-          Deployment & Data Flow Topology
+        <span
+          style={{
+            fontWeight: "bold",
+            fontSize: "0.9rem",
+            paddingLeft: "20px",
+            color: "#fff",
+          }}
+        >
+          Deployment Topology
         </span>
         <button
           onClick={() => setIsFullscreen(!isFullscreen)}
           style={{
-            padding: "6px 12px",
-            border: "1px solid #444",
-            borderRadius: "4px",
+            padding: "12px 20px",
+            border: "none",
             backgroundColor: "#1f242c",
             color: "#fff",
             cursor: "pointer",
             fontWeight: "600",
-            fontSize: "0.8rem",
+            fontSize: "0.85rem",
             display: "flex",
             alignItems: "center",
             gap: "6px",
+            borderLeft: "1px solid #333",
+            alignSelf: "stretch",
           }}
         >
           {isFullscreen ? "Exit Fullscreen ✕" : "Fullscreen ⛶"}
@@ -407,12 +392,6 @@ export default function FiretruckExplorer() {
             : {}),
         }}
       >
-        <p style={{ fontSize: "0.85rem", color: "#888", marginBottom: "15px" }}>
-          Interactive Deployment & Data Flow Architecture Map. Click on any node
-          to view integration pipeline implementation details and configuration
-          files.
-        </p>
-
         <div
           style={{
             position: "relative",
@@ -517,17 +496,17 @@ export default function FiretruckExplorer() {
                 height="420"
                 rx="10"
                 fill="none"
-                stroke="#555"
+                stroke="#888"
                 strokeWidth="1.5"
                 strokeDasharray="4,4"
               />
               <text
                 x="730"
-                y="50"
-                fill="#888"
+                y="22"
+                fill="#e2e8f0"
                 textAnchor="middle"
                 style={{
-                  fontSize: "11px",
+                  fontSize: "11.5px",
                   fontWeight: "bold",
                   letterSpacing: "1px",
                 }}
@@ -543,17 +522,17 @@ export default function FiretruckExplorer() {
                 height="170"
                 rx="6"
                 fill="none"
-                stroke="#333"
+                stroke="#555"
                 strokeWidth="1.5"
               />
               <text
                 x="515"
-                y="80"
-                fill="#888"
+                y="52"
+                fill="#00e5ff"
                 textAnchor="start"
-                style={{ fontSize: "10px", fontWeight: "bold" }}
+                style={{ fontSize: "10.5px", fontWeight: "bold" }}
               >
-                DEVELOPMENT ENVIRONMENT (main branch push)
+                STAGING ENVIRONMENT
               </text>
 
               {/* Prod Environment Boundary Enclosure */}
@@ -564,25 +543,25 @@ export default function FiretruckExplorer() {
                 height="170"
                 rx="6"
                 fill="none"
-                stroke="#d32f2f"
+                stroke="#ff1744"
                 strokeWidth="1.5"
                 style={{ opacity: 0.7 }}
               />
               <text
                 x="515"
-                y="280"
-                fill="#e74c3c"
+                y="252"
+                fill="#ff5252"
                 textAnchor="start"
-                style={{ fontSize: "10px", fontWeight: "bold" }}
+                style={{ fontSize: "10.5px", fontWeight: "bold" }}
               >
-                PRODUCTION ENVIRONMENT (tag push v*)
+                PRODUCTION ENVIRONMENT
               </text>
 
               {/* Git Repository to actions connector */}
               <path
                 d="M 100 105 L 100 190"
                 fill="none"
-                stroke="#666"
+                stroke="#8b949e"
                 strokeWidth="2"
                 strokeDasharray="3,3"
               />
@@ -591,145 +570,127 @@ export default function FiretruckExplorer() {
               <path
                 d="M 175 210 Q 330 180 515 110"
                 fill="none"
-                stroke="#3498db"
+                stroke="#00e5ff"
                 strokeWidth="2"
               />
               <text
-                x="320"
-                y="150"
-                fill="#3498db"
-                style={{ fontSize: "9px", fontWeight: "bold" }}
+                x="210"
+                y="145"
+                fill="#00e5ff"
+                style={{ fontSize: "11px", fontWeight: "bold" }}
               >
-                Push main -{">"} Deploy Dev
+                Push main {"=>"} Deploy Staging
               </text>
 
               {/* Github Actions to Prod Ingress Route */}
               <path
                 d="M 175 230 Q 330 280 515 310"
                 fill="none"
-                stroke="#e74c3c"
+                stroke="#ff1744"
                 strokeWidth="2"
               />
               <text
-                x="320"
-                y="280"
-                fill="#e74c3c"
-                style={{ fontSize: "9px", fontWeight: "bold" }}
+                x="210"
+                y="235"
+                fill="#ff5252"
+                style={{ fontSize: "11px", fontWeight: "bold" }}
               >
-                Push tag v* -{">"} Deploy Prod
+                Push tag v* {"=>"} Deploy Production
               </text>
 
-              {/* ESP32 to Router Link */}
+              {/* ESP32 WebSockets to OKD Ingress Router (via Wi-Fi/Internet) */}
+              {/* To Staging Ingress */}
               <path
-                d="M 175 400 L 215 400"
+                d="M 175 390 Q 400 320 515 100"
                 fill="none"
-                stroke="#e67e22"
-                strokeWidth="2"
-                strokeDasharray="2,2"
-              />
-              <text
-                x="195"
-                y="390"
-                fill="#e67e22"
-                textAnchor="middle"
-                style={{ fontSize: "8px", fontWeight: "bold" }}
-              >
-                Wi-Fi
-              </text>
-
-              {/* OPNsense to Ingress Routing (Websocket connections) */}
-              {/* To Dev Backend WebSockets */}
-              <path
-                d="M 365 370 Q 440 230 515 120"
-                fill="none"
-                stroke="#1abc9c"
+                stroke="#00b0ff"
                 strokeWidth="1.5"
                 strokeDasharray="3,3"
               />
-              {/* To Prod Backend WebSockets */}
+              {/* To Prod Ingress */}
               <path
-                d="M 365 400 Q 450 380 515 320"
+                d="M 175 410 Q 330 360 515 300"
                 fill="none"
-                stroke="#1abc9c"
+                stroke="#00b0ff"
                 strokeWidth="2"
               />
               <text
-                x="430"
-                y="350"
-                fill="#1abc9c"
-                style={{ fontSize: "9px", fontWeight: "bold" }}
+                x="300"
+                y="385"
+                fill="#00e5ff"
+                style={{ fontSize: "11px", fontWeight: "bold" }}
               >
-                WebSocket Stream
+                WebSocket Stream (STOMP)
               </text>
 
               {/* Internal Dev connections */}
               <path
                 d="M 625 100 L 665 100"
                 fill="none"
-                stroke="#95a5a6"
+                stroke="#00e5ff"
                 strokeWidth="1.5"
               />
               <path
                 d="M 570 120 L 570 160"
                 fill="none"
-                stroke="#95a5a6"
+                stroke="#00e5ff"
                 strokeWidth="1.5"
               />
               <path
                 d="M 775 100 L 815 100"
                 fill="none"
-                stroke="#95a5a6"
+                stroke="#00e5ff"
                 strokeWidth="1.5"
               />
               <path
                 d="M 720 120 Q 645 150 625 180"
                 fill="none"
-                stroke="#2ecc71"
+                stroke="#00b0ff"
                 strokeWidth="1.5"
                 strokeDasharray="2,2"
               />
               <text
                 x="690"
                 y="155"
-                fill="#2ecc71"
-                style={{ fontSize: "7.5px" }}
+                fill="#00e5ff"
+                style={{ fontSize: "9.5px", fontWeight: "bold" }}
               >
-                WebSocket Broker
+                STOMP Push
               </text>
 
               {/* Internal Prod connections */}
               <path
                 d="M 625 300 L 665 300"
                 fill="none"
-                stroke="#e74c3c"
+                stroke="#ff1744"
                 strokeWidth="1.5"
               />
               <path
                 d="M 570 320 L 570 360"
                 fill="none"
-                stroke="#e74c3c"
+                stroke="#ff1744"
                 strokeWidth="1.5"
               />
               <path
                 d="M 775 300 L 815 300"
                 fill="none"
-                stroke="#e74c3c"
+                stroke="#ff1744"
                 strokeWidth="1.5"
               />
               <path
                 d="M 720 320 Q 645 350 625 380"
                 fill="none"
-                stroke="#2ecc71"
+                stroke="#00b0ff"
                 strokeWidth="1.5"
                 strokeDasharray="2,2"
               />
               <text
                 x="690"
                 y="355"
-                fill="#2ecc71"
-                style={{ fontSize: "7.5px" }}
+                fill="#00e5ff"
+                style={{ fontSize: "9.5px", fontWeight: "bold" }}
               >
-                WebSocket Broker
+                STOMP Push
               </text>
 
               {/* Render Nodes */}
@@ -757,9 +718,6 @@ export default function FiretruckExplorer() {
                       strokeWidth={isSelected ? "2.5" : "1.5"}
                       style={{
                         transition: "all 0.2s",
-                        filter: isSelected
-                          ? `drop-shadow(0 0 6px ${node.color})`
-                          : "none",
                       }}
                     />
                     {/* Title */}
@@ -776,7 +734,7 @@ export default function FiretruckExplorer() {
                     <text
                       x="0"
                       y="12"
-                      fill="#888"
+                      fill="#cbd5e1"
                       textAnchor="middle"
                       style={{ fontSize: "8.5px" }}
                     >
@@ -810,24 +768,11 @@ export default function FiretruckExplorer() {
           }}
         >
           {selectedNode ? (
-            <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
-              <div style={{ flex: "1 1 350px" }}>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
-                >
-                  <span
-                    style={{
-                      width: "12px",
-                      height: "12px",
-                      borderRadius: "3px",
-                      backgroundColor: selectedNode.color,
-                      display: "inline-block",
-                    }}
-                  ></span>
-                  <h4 style={{ margin: 0, fontSize: "1.05rem", color: "#fff" }}>
-                    {selectedNode.name} ({selectedNode.role})
-                  </h4>
-                </div>
+            <div style={{ display: "flex", gap: "20px" }}>
+              <div style={{ flex: 1 }}>
+                <h4 style={{ margin: 0, fontSize: "1.05rem", color: selectedNode.color, fontWeight: "bold" }}>
+                  {selectedNode.name} ({selectedNode.role})
+                </h4>
                 <p
                   style={{
                     marginTop: "8px",
@@ -838,36 +783,6 @@ export default function FiretruckExplorer() {
                 >
                   {selectedNode.details}
                 </p>
-              </div>
-
-              <div style={{ flex: "1 1 250px" }}>
-                <span
-                  style={{
-                    fontSize: "0.75rem",
-                    fontWeight: "bold",
-                    color: "#888",
-                    display: "block",
-                    marginBottom: "6px",
-                  }}
-                >
-                  INTEGRATION IMPLEMENTATION:
-                </span>
-                <pre
-                  style={{
-                    margin: 0,
-                    padding: "10px",
-                    backgroundColor: "#0b0e14",
-                    border: "1px solid #222",
-                    borderRadius: "4px",
-                    fontFamily: "Consolas, Monaco, monospace",
-                    fontSize: "0.75rem",
-                    color: "#ddd",
-                    overflowX: "auto",
-                    maxHeight: "150px",
-                  }}
-                >
-                  {selectedNode.commandsOrCode.join("\n")}
-                </pre>
               </div>
             </div>
           ) : (
