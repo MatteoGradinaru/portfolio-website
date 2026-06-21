@@ -49,7 +49,7 @@ const lab1to6Data: TopologyData = {
       name: "ISP-A",
       x: 300,
       y: 50,
-      color: "#e65100",
+      color: "#ffab40",
       protocols: ["eBGP"],
       interfaces: [
         { name: "Loopback0", ip: "8.8.8.1/32", desc: "Internet Simulator" },
@@ -62,7 +62,7 @@ const lab1to6Data: TopologyData = {
       name: "ISP-B",
       x: 600,
       y: 50,
-      color: "#e65100",
+      color: "#ffab40",
       protocols: ["eBGP"],
       interfaces: [
         { name: "Loopback0", ip: "9.9.9.1/32", desc: "Internet Simulator" },
@@ -75,7 +75,7 @@ const lab1to6Data: TopologyData = {
       name: "EDGE-R1",
       x: 300,
       y: 150,
-      color: "#00acc1",
+      color: "#00e5ff",
       protocols: ["IS-IS", "eBGP", "iBGP"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.0.1/32", desc: "Router ID" },
@@ -88,7 +88,7 @@ const lab1to6Data: TopologyData = {
       name: "EDGE-R2",
       x: 600,
       y: 150,
-      color: "#00acc1",
+      color: "#00e5ff",
       protocols: ["IS-IS", "eBGP", "iBGP"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.255.2/32", desc: "Router ID" },
@@ -101,7 +101,7 @@ const lab1to6Data: TopologyData = {
       name: "CORE-R1",
       x: 250,
       y: 280,
-      color: "#00838f",
+      color: "#00b0ff",
       protocols: ["IS-IS", "iBGP", "VRF"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.0.2/32", desc: "Router ID" },
@@ -114,7 +114,7 @@ const lab1to6Data: TopologyData = {
       name: "CORE-R2",
       x: 650,
       y: 280,
-      color: "#00838f",
+      color: "#00b0ff",
       protocols: ["IS-IS", "iBGP"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.0.5/32", desc: "Router ID" },
@@ -126,7 +126,7 @@ const lab1to6Data: TopologyData = {
       name: "DIST-R1",
       x: 550,
       y: 400,
-      color: "#43a047",
+      color: "#1de9b6",
       protocols: ["IS-IS"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.0.3/32", desc: "Router ID" },
@@ -138,7 +138,7 @@ const lab1to6Data: TopologyData = {
       name: "DIST-R2",
       x: 750,
       y: 400,
-      color: "#43a047",
+      color: "#1de9b6",
       protocols: ["IS-IS"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.0.4/32", desc: "Router ID" },
@@ -150,7 +150,7 @@ const lab1to6Data: TopologyData = {
       name: "Router-A",
       x: 150,
       y: 400,
-      color: "#fbc02d",
+      color: "#a07cf8",
       protocols: ["VRF"],
       interfaces: [
         { name: "Gi0/0", ip: "192.168.100.2/30", desc: "WAN to CORE-R1" },
@@ -162,7 +162,7 @@ const lab1to6Data: TopologyData = {
       name: "Router-B",
       x: 350,
       y: 400,
-      color: "#fbc02d",
+      color: "#a07cf8",
       protocols: ["VRF"],
       interfaces: [
         { name: "Gi0/0", ip: "192.168.200.2/30", desc: "WAN to CORE-R1" },
@@ -171,8 +171,8 @@ const lab1to6Data: TopologyData = {
     },
   ],
   connections: [
-    { from: "ispa", to: "edge1", color: "#e65100", protocols: ["eBGP"] },
-    { from: "ispb", to: "edge2", color: "#e65100", protocols: ["eBGP"] },
+    { from: "ispa", to: "edge1", color: "#ffab40", protocols: ["eBGP"] },
+    { from: "ispb", to: "edge2", color: "#ffab40", protocols: ["eBGP"] },
     {
       from: "edge1",
       to: "edge2",
@@ -184,19 +184,19 @@ const lab1to6Data: TopologyData = {
     { from: "edge1", to: "core2", protocols: ["IS-IS", "iBGP"] },
     { from: "edge2", to: "core1", protocols: ["IS-IS", "iBGP"] },
     { from: "edge2", to: "core2", protocols: ["IS-IS", "iBGP"] },
-    { from: "core1", to: "core2", color: "#00acc1", protocols: ["IS-IS"] },
+    { from: "core1", to: "core2", color: "#00e5ff", protocols: ["IS-IS"] },
     {
       from: "core1",
       to: "routera",
       dashed: true,
-      color: "#fbc02d",
+      color: "#a07cf8",
       protocols: ["VRF"],
     },
     {
       from: "core1",
       to: "routerb",
       dashed: true,
-      color: "#fbc02d",
+      color: "#a07cf8",
       protocols: ["VRF"],
     },
     { from: "core1", to: "dist1", protocols: ["IS-IS"] },
@@ -213,7 +213,7 @@ const lab7to9Data: TopologyData = {
       name: "CE1-A",
       x: 100,
       y: 250,
-      color: "#7e57c2",
+      color: "#a07cf8",
       protocols: ["VRF", "IPsec"],
       interfaces: [
         {
@@ -244,7 +244,7 @@ const lab7to9Data: TopologyData = {
       name: "PE1",
       x: 300,
       y: 250,
-      color: "#00acc1",
+      color: "#00e5ff",
       protocols: ["IS-IS", "MPLS/LDP", "VPNv4", "VRF"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.0.1/32", desc: "LDP Router ID" },
@@ -263,7 +263,7 @@ const lab7to9Data: TopologyData = {
       name: "P1",
       x: 500,
       y: 250,
-      color: "#00838f",
+      color: "#00b0ff",
       protocols: ["IS-IS", "MPLS/LDP"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.0.2/32", desc: "LSR Router ID" },
@@ -281,7 +281,7 @@ const lab7to9Data: TopologyData = {
       name: "PE2",
       x: 700,
       y: 250,
-      color: "#00acc1",
+      color: "#00e5ff",
       protocols: ["IS-IS", "MPLS/LDP", "VPNv4", "VRF"],
       interfaces: [
         { name: "Loopback0", ip: "10.255.0.3/32", desc: "LDP Router ID" },
@@ -300,7 +300,7 @@ const lab7to9Data: TopologyData = {
       name: "CE2-A",
       x: 900,
       y: 250,
-      color: "#7e57c2",
+      color: "#a07cf8",
       protocols: ["VRF", "IPsec"],
       interfaces: [
         {
@@ -336,7 +336,7 @@ const lab7to9Data: TopologyData = {
       from: "pe1",
       to: "pe2",
       dashed: true,
-      color: "#00acc1",
+      color: "#00e5ff",
       curved: true,
       protocols: ["VPNv4"],
     },
@@ -344,7 +344,7 @@ const lab7to9Data: TopologyData = {
       from: "ce1a",
       to: "ce2a",
       dashed: true,
-      color: "#66bb6a",
+      color: "#ff1744",
       curved: true,
       curveOffset: 160,
       protocols: ["IPsec"],
@@ -593,7 +593,7 @@ export default function NetworkExplorer() {
                 borderRadius: "20px",
                 border: "1px solid #333",
                 backgroundColor:
-                  activeProtocol === proto ? "#00acc1" : "#161b22",
+                  activeProtocol === proto ? "#2979ff" : "#161b22",
                 color: activeProtocol === proto ? "#fff" : "#ccc",
                 cursor: "pointer",
                 fontSize: "0.8rem",
@@ -711,7 +711,7 @@ export default function NetworkExplorer() {
                     height="210"
                     rx="8"
                     fill="none"
-                    stroke="#00acc1"
+                    stroke="#00e5ff"
                     strokeWidth="1.5"
                     strokeDasharray="6,6"
                     style={{
@@ -728,7 +728,7 @@ export default function NetworkExplorer() {
                   <text
                     x="500"
                     y="150"
-                    fill="#00acc1"
+                    fill="#00e5ff"
                     textAnchor="middle"
                     style={{
                       fontSize: "11px",
@@ -755,7 +755,7 @@ export default function NetworkExplorer() {
                     height="140"
                     rx="6"
                     fill="none"
-                    stroke="#7e57c2"
+                    stroke="#a07cf8"
                     strokeWidth="1.5"
                     strokeDasharray="4,4"
                     style={{
@@ -772,7 +772,7 @@ export default function NetworkExplorer() {
                   <text
                     x="300"
                     y="198"
-                    fill="#7e57c2"
+                    fill="#a07cf8"
                     textAnchor="middle"
                     style={{
                       fontSize: "10px",
@@ -798,7 +798,7 @@ export default function NetworkExplorer() {
                     height="140"
                     rx="6"
                     fill="none"
-                    stroke="#7e57c2"
+                    stroke="#a07cf8"
                     strokeWidth="1.5"
                     strokeDasharray="4,4"
                     style={{
@@ -815,7 +815,7 @@ export default function NetworkExplorer() {
                   <text
                     x="700"
                     y="198"
-                    fill="#7e57c2"
+                    fill="#a07cf8"
                     textAnchor="middle"
                     style={{
                       fontSize: "10px",
@@ -837,7 +837,7 @@ export default function NetworkExplorer() {
                   <text
                     x="500"
                     y="70"
-                    fill="#66bb6a"
+                    fill="#ff1744"
                     textAnchor="middle"
                     style={{
                       fontSize: "11px",
@@ -968,7 +968,7 @@ export default function NetworkExplorer() {
                       stroke={
                         selectedDevice?.id === device.id
                           ? "#fff"
-                          : device.color || "#00acc1"
+                          : device.color || "#00e5ff"
                       }
                       strokeWidth={selectedDevice?.id === device.id ? "3" : "2"}
                       className="device-rect"
@@ -1006,11 +1006,11 @@ export default function NetworkExplorer() {
             }}
           >
             <div>
-              <span style={{ color: "#7e57c2", fontWeight: "bold" }}>
+              <span style={{ color: "#a07cf8", fontWeight: "bold" }}>
                 Tunnel0 source
               </span>{" "}
               = local loopback (reachable via L3VPN) &middot;{" "}
-              <span style={{ color: "#7e57c2", fontWeight: "bold" }}>
+              <span style={{ color: "#a07cf8", fontWeight: "bold" }}>
                 destination
               </span>{" "}
               = remote loopback
@@ -1019,11 +1019,11 @@ export default function NetworkExplorer() {
               style={{ marginTop: "4px", fontSize: "0.8rem", color: "#888" }}
             >
               L3VPN provides{" "}
-              <span style={{ color: "#00acc1", fontWeight: "600" }}>
+              <span style={{ color: "#00e5ff", fontWeight: "600" }}>
                 reachability
               </span>{" "}
               &middot; IPsec provides{" "}
-              <span style={{ color: "#66bb6a", fontWeight: "600" }}>
+              <span style={{ color: "#ff1744", fontWeight: "600" }}>
                 encryption
               </span>
             </div>
@@ -1063,7 +1063,7 @@ export default function NetworkExplorer() {
                   <h3
                     style={{
                       margin: 0,
-                      color: selectedDevice.color || "#00acc1",
+                      color: selectedDevice.color || "#00e5ff",
                     }}
                   >
                     {selectedDevice.name} Configuration
@@ -1087,9 +1087,6 @@ export default function NetworkExplorer() {
                     ))}
                   </div>
                 </div>
-                <span style={{ fontSize: "0.8rem", color: "#888" }}>
-                  Status: Operational
-                </span>
               </div>
 
               <div
@@ -1137,7 +1134,7 @@ export default function NetworkExplorer() {
                           <span style={{ fontWeight: "bold" }}>
                             {intf.name}
                           </span>
-                          <span style={{ color: "#00acc1" }}>{intf.ip}</span>
+                          <span style={{ color: "#00e5ff" }}>{intf.ip}</span>
                         </div>
                         <div
                           style={{
