@@ -475,16 +475,18 @@ export default function NetworkExplorer() {
         overflow: "hidden",
         backgroundColor: "#0b0e14",
         color: "#fff",
-        ...(isFullscreen ? {
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          zIndex: 9999,
-          display: "flex",
-          flexDirection: "column",
-        } : {})
+        ...(isFullscreen
+          ? {
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              zIndex: 9999,
+              display: "flex",
+              flexDirection: "column",
+            }
+          : {}),
       }}
     >
       {/* Tabs */}
@@ -510,7 +512,8 @@ export default function NetworkExplorer() {
               padding: "12px",
               border: "none",
               cursor: "pointer",
-              backgroundColor: selectedLab === "1-6" ? "#0b0e14" : "transparent",
+              backgroundColor:
+                selectedLab === "1-6" ? "#0b0e14" : "transparent",
               color: selectedLab === "1-6" ? "#fff" : "#888",
               fontWeight: selectedLab === "1-6" ? "bold" : "normal",
             }}
@@ -528,7 +531,8 @@ export default function NetworkExplorer() {
               padding: "12px",
               border: "none",
               cursor: "pointer",
-              backgroundColor: selectedLab === "7-9" ? "#0b0e14" : "transparent",
+              backgroundColor:
+                selectedLab === "7-9" ? "#0b0e14" : "transparent",
               color: selectedLab === "7-9" ? "#fff" : "#888",
               fontWeight: selectedLab === "7-9" ? "bold" : "normal",
             }}
@@ -560,12 +564,14 @@ export default function NetworkExplorer() {
       <div
         style={{
           padding: "20px",
-          ...(isFullscreen ? {
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            overflow: "hidden",
-          } : {}),
+          ...(isFullscreen
+            ? {
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                overflow: "hidden",
+              }
+            : {}),
         }}
       >
         {/* Protocol Filter */}
@@ -608,7 +614,7 @@ export default function NetworkExplorer() {
             borderRadius: "8px",
             border: "1px solid #333",
             overflow: "hidden",
-            ...(isFullscreen ? { flex: 1, minHeight: "250px" } : {})
+            ...(isFullscreen ? { flex: 1, minHeight: "250px" } : {}),
           }}
         >
           {/* Zoom Controls Overlay */}
@@ -1033,10 +1039,12 @@ export default function NetworkExplorer() {
             borderRadius: "8px",
             border: "1px solid #333",
             minHeight: "150px",
-            ...(isFullscreen ? {
-              maxHeight: "220px",
-              overflowY: "auto"
-            } : {})
+            ...(isFullscreen
+              ? {
+                  maxHeight: "220px",
+                  overflowY: "auto",
+                }
+              : {}),
           }}
         >
           {selectedDevice ? (
