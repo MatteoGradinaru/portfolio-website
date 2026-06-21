@@ -68,7 +68,7 @@ export default function Projects() {
       className="section"
       style={{ maxWidth: "1200px", margin: "0 auto" }}
     >
-      <div style={{ textAlign: "center", marginBottom: "50px" }}>
+      <div style={{ textAlign: "left", marginBottom: "50px" }}>
         <h1
           className="section-title"
           style={{ fontSize: "2.5rem", marginBottom: "15px" }}
@@ -80,13 +80,12 @@ export default function Projects() {
             fontSize: "1.15rem",
             color: "#666",
             maxWidth: "700px",
-            margin: "0 auto",
             lineHeight: "1.6",
           }}
         >
-          Explore the systems, network topologies, and applications I have
-          designed and built during my second year in Applied Computer Science
-          at UC Leuven Limburg.
+          Here is a selection of the projects I've worked on during my courses at UCLL. 
+          They cover everything from setting up enterprise routing tables and configuring secure wireless networks 
+          to building full-stack applications. Click on any card below to read the details or play around with the interactive topologies.
         </p>
       </div>
 
@@ -101,12 +100,10 @@ export default function Projects() {
           <div
             key={project.id}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
               e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)";
               e.currentTarget.style.borderColor = project.color;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
               e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)";
               e.currentTarget.style.borderColor = "#eaeaea";
             }}
@@ -119,7 +116,7 @@ export default function Projects() {
               padding: "24px",
               boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
               transition:
-                "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
+                "box-shadow 0.2s ease, border-color 0.2s ease",
               height: "100%",
             }}
           >

@@ -45,20 +45,23 @@ export default function KuLeuvenEventRegistration() {
   }, [activeScreenshotIdx]);
 
   return (
-    <section className="section" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <section
+      className="section"
+      style={{ maxWidth: "1200px", margin: "0 auto" }}
+    >
       <div style={{ marginBottom: "25px" }}>
-        <Link 
-          href="/projects" 
-          style={{ 
-            display: "inline-flex", 
-            alignItems: "center", 
-            gap: "6px", 
-            color: "#666", 
+        <Link
+          href="/projects"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            color: "#666",
             fontSize: "0.95rem",
-            transition: "color 0.2s"
+            transition: "color 0.2s",
           }}
-          onMouseEnter={(e) => e.currentTarget.style.color = "#0070f3"}
-          onMouseLeave={(e) => e.currentTarget.style.color = "#666"}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#0070f3")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}
         >
           ← Back to Projects
         </Link>
@@ -67,29 +70,53 @@ export default function KuLeuvenEventRegistration() {
       <h1 className="section-title" style={{ margin: "10px 0 5px 0" }}>
         KU Leuven Event Registration & Attendance Management System
       </h1>
-      <p style={{ color: "#a07cf8", fontWeight: "600", fontSize: "1rem", marginBottom: "15px" }}>
+      <p
+        style={{
+          color: "#a07cf8",
+          fontWeight: "600",
+          fontSize: "1rem",
+          marginBottom: "15px",
+        }}
+      >
         Agile Full-Stack Software Development Project
       </p>
 
-      <div style={{ color: "#555", fontSize: "1.05rem", lineHeight: "1.6", marginBottom: "30px" }}>
+      <div
+        style={{
+          color: "#555",
+          fontSize: "1.05rem",
+          lineHeight: "1.6",
+          marginBottom: "30px",
+        }}
+      >
         <p style={{ marginBottom: "15px" }}>
-          This system is a multi-role full-stack application built for <strong>KU Leuven</strong> to coordinate trial course registrations for prospective students. 
-          Developed in an agile scrum team of 6 students (3 juniors, 3 seniors), I worked as a Junior Developer focusing on the <strong>Spring Boot (Java 21)</strong> backend API development and the <strong>Next.js / TypeScript</strong> frontend components.
+          This system is a multi-role full-stack application built for KU Leuven
+          to coordinate trial course registrations for prospective students.
+          Developed in an agile scrum team of 6 students (3 juniors, 3 seniors),
+          I worked as a Junior Developer focusing on the Spring Boot backend API
+          development and the Next.js / TypeScriptfrontend components.
         </p>
         <p style={{ marginBottom: "15px" }}>
-          Key modules include a highly interactive, <strong>chatbot-style sliding registration panel</strong> that parses address validation rules dynamically, 
-          automated HTML email confirmations containing a <strong>ZXing secure check-in QR code</strong> attachment, 
-          and an administrative portal providing XML imports/exports alongside color theme customizations.
+          Key modules include a highly interactive, chatbot-style sliding
+          registration panelthat parses address validation rules dynamically,
+          automated HTML email confirmations containing a ZXing secure check-in
+          QR code attachment, and an administrative portal providing XML
+          imports/exports alongside color theme customizations.
         </p>
         <p>
-          Additionally, we developed a real-time <strong>webcam-based QR code check-in console</strong> for physical event organizers using browser camera scanning and sound chime integrations to log attendees instantly.
+          Additionally, we developed a real-time webcam-based QR code check-in
+          console for physical event organizers using browser camera scanning
+          and sound chime integrations to log attendees instantly.
         </p>
       </div>
 
       <div style={{ margin: "40px 0" }}>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "10px" }}>System Screenshots</h2>
+        <h2 style={{ fontSize: "1.5rem", marginBottom: "10px" }}>
+          System Screenshots
+        </h2>
         <p style={{ color: "#666", fontSize: "0.9rem", marginBottom: "15px" }}>
-          Click on any slide to open the fullscreen lightbox viewer and browse the system interfaces:
+          Click on any slide to open the fullscreen lightbox viewer and browse
+          the system interfaces:
         </p>
 
         <div
@@ -106,8 +133,7 @@ export default function KuLeuvenEventRegistration() {
               onClick={() => setActiveScreenshotIdx(idx)}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "scale(1.03)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 15px rgba(0,0,0,0.3)";
+                e.currentTarget.style.boxShadow = "0 4px 15px rgba(0,0,0,0.3)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "scale(1)";
@@ -154,24 +180,79 @@ export default function KuLeuvenEventRegistration() {
         </div>
       </div>
 
-      <div style={{ marginTop: "40px", borderTop: "1px solid #eee", paddingTop: "30px" }}>
-        <h3 style={{ marginBottom: "15px" }}>Technical Highlights & Features</h3>
-        <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "15px", padding: 0 }}>
-          <li style={{ background: "#f8f9fa", padding: "15px", borderRadius: "8px", borderLeft: "4px solid #a07cf8" }}>
+      <div
+        style={{
+          marginTop: "40px",
+          borderTop: "1px solid #eee",
+          paddingTop: "30px",
+        }}
+      >
+        <h3 style={{ marginBottom: "15px" }}>
+          Technical Highlights & Features
+        </h3>
+        <ul
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "15px",
+            padding: 0,
+          }}
+        >
+          <li
+            style={{
+              background: "#f8f9fa",
+              padding: "15px",
+              borderRadius: "8px",
+              borderLeft: "4px solid #a07cf8",
+            }}
+          >
             <strong>Conversational Chat Form</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>Replaced static registration inputs with a dynamic conversational UI. Enforces a 10-minute timeout reservation window.</p>
+            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+              Replaced static registration inputs with a dynamic conversational
+              UI. Enforces a 10-minute timeout reservation window.
+            </p>
           </li>
-          <li style={{ background: "#f8f9fa", padding: "15px", borderRadius: "8px", borderLeft: "4px solid #a07cf8" }}>
+          <li
+            style={{
+              background: "#f8f9fa",
+              padding: "15px",
+              borderRadius: "8px",
+              borderLeft: "4px solid #a07cf8",
+            }}
+          >
             <strong>Secure QR Code Generator</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>Leveraged Java ZXing libraries and mail-send profiles to construct encrypted token QR attachments in automated HTML emails.</p>
+            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+              Leveraged Java ZXing libraries and mail-send profiles to construct
+              encrypted token QR attachments in automated HTML emails.
+            </p>
           </li>
-          <li style={{ background: "#f8f9fa", padding: "15px", borderRadius: "8px", borderLeft: "4px solid #a07cf8" }}>
+          <li
+            style={{
+              background: "#f8f9fa",
+              padding: "15px",
+              borderRadius: "8px",
+              borderLeft: "4px solid #a07cf8",
+            }}
+          >
             <strong>In-Browser Camera Scanning</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>Integrated camera readers with custom audio chime feedback and duplicate-scan protection to enable smooth reception operations.</p>
+            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+              Integrated camera readers with custom audio chime feedback and
+              duplicate-scan protection to enable smooth reception operations.
+            </p>
           </li>
-          <li style={{ background: "#f8f9fa", padding: "15px", borderRadius: "8px", borderLeft: "4px solid #a07cf8" }}>
+          <li
+            style={{
+              background: "#f8f9fa",
+              padding: "15px",
+              borderRadius: "8px",
+              borderLeft: "4px solid #a07cf8",
+            }}
+          >
             <strong>Security & Imports</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>Configured JWT stateless route policies in Spring Security, XML parser uploads using Jackson XmlMapper, and PostgreSQL databases.</p>
+            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+              Configured JWT stateless route policies in Spring Security, XML
+              parser uploads using Jackson XmlMapper, and PostgreSQL databases.
+            </p>
           </li>
         </ul>
       </div>

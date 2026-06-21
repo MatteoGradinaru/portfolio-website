@@ -201,6 +201,24 @@ export default function NetworkExplorer() {
           ))}
         </div>
 
+        {selectedLab === "7-9" &&
+          (activeProtocol === "IS-IS" || activeProtocol === "MPLS/LDP") && (
+            <div
+              style={{
+                textAlign: "center",
+                marginBottom: "15px",
+                fontSize: "0.85rem",
+                color: "#8ab4f8",
+                animation: "fadeIn 0.3s ease",
+              }}
+            >
+              <strong>Note: </strong> LDP builds label bindings over the routing
+              table established by the IS-IS IGP. Because both protocols are
+              active on the same backbone interfaces (PE1 &harr; P1 &harr; PE2),
+              their active topologies are identical.
+            </div>
+          )}
+
         <div
           style={{
             position: "relative",
