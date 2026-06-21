@@ -67,7 +67,7 @@ export default function KuLeuvenEventRegistration() {
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0" }}>
+      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
         KU Leuven Event Registration & Attendance Management System
       </h1>
       <p

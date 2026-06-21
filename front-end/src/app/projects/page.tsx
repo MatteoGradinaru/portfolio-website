@@ -71,7 +71,7 @@ export default function Projects() {
       <div style={{ textAlign: "left", marginBottom: "50px" }}>
         <h1
           className="section-title"
-          style={{ fontSize: "2.5rem", marginBottom: "15px" }}
+          style={{ fontSize: "2.5rem", marginBottom: "15px", color: "#000" }}
         >
           My Projects
         </h1>

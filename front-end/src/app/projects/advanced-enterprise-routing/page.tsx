@@ -27,7 +27,7 @@ export default function AdvancedEnterpriseRouting() {
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0" }}>
+      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
         Advanced Enterprise Routing & MPLS Backbone
       </h1>
       <p

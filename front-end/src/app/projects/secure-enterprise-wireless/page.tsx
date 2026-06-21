@@ -27,7 +27,7 @@ export default function SecureEnterpriseWireless() {
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0" }}>
+      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
         Secure Enterprise Wireless LAN (WLAN) Infrastructure
       </h1>
       <p

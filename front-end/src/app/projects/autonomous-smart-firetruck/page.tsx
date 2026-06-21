@@ -27,7 +27,7 @@ export default function AutonomousSmartFiretruck() {
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0" }}>
+      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
         Autonomous Smart Firetruck & Real-Time IoT Dashboard
       </h1>
       <p
