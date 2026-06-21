@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 type WirelessFilter = 'ALL' | 'INFRASTRUCTURE' | 'VLANS' | 'CAPWAP' | '802.1X' | 'PORTAL';
 
@@ -320,6 +320,48 @@ export default function WirelessExplorer() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragged, setDragged] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const svgRef = useRef<SVGSVGElement | null>(null);
+
+  useEffect(() => {
+    const svgEl = svgRef.current;
+    if (!svgEl) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (e.ctrlKey) {
+        e.preventDefault();
+        const zoomFactor = 0.05;
+        if (e.deltaY < 0) {
+          setScale((prev) => Math.min(prev + zoomFactor, 2.5));
+        } else {
+          setScale((prev) => Math.max(prev - zoomFactor, 0.5));
+        }
+      }
+    };
+
+    svgEl.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      svgEl.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsFullscreen(false);
+      }
+    };
+    if (isFullscreen) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isFullscreen]);
 
   const getDevicePos = (id: string) => {
     const d = wirelessDevices.find(dev => dev.id === id);
@@ -362,9 +404,34 @@ export default function WirelessExplorer() {
   };
 
   return (
-    <div style={{ marginTop: '30px', border: '1px solid #ddd', borderRadius: '12px', overflow: 'hidden', backgroundColor: '#0b0e14', color: '#fff' }}>
+    <div style={{
+      marginTop: isFullscreen ? '0px' : '30px',
+      marginRight: '0px',
+      marginBottom: '0px',
+      marginLeft: '0px',
+      paddingTop: '0px',
+      paddingRight: '0px',
+      paddingBottom: '0px',
+      paddingLeft: '0px',
+      border: isFullscreen ? 'none' : '1px solid #ddd',
+      borderRadius: isFullscreen ? '0px' : '12px',
+      overflow: 'hidden',
+      backgroundColor: '#0b0e14',
+      color: '#fff',
+      ...(isFullscreen ? {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 9999,
+        display: 'flex',
+        flexDirection: 'column',
+      } : {})
+    }}>
       {/* Toggles */}
-      <div style={{ display: 'flex', borderBottom: '1px solid #333', backgroundColor: '#161b22', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', borderBottom: '1px solid #333', backgroundColor: '#161b22', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flex: 1, flexWrap: 'wrap' }}>
         <button 
           onClick={() => { setActiveFilter('ALL'); setSelectedDevice(null); }}
           style={{ flex: 1, padding: '12px 10px', border: 'none', cursor: 'pointer', fontSize: '0.85rem', backgroundColor: activeFilter === 'ALL' ? '#0b0e14' : 'transparent', color: activeFilter === 'ALL' ? '#fff' : '#888', fontWeight: activeFilter === 'ALL' ? 'bold' : 'normal' }}
@@ -401,10 +468,47 @@ export default function WirelessExplorer() {
         >
           Captive Portal (Guest LWA)
         </button>
+        </div>
+        <button
+          onClick={() => setIsFullscreen(!isFullscreen)}
+          style={{
+            padding: "12px 20px",
+            border: "none",
+            backgroundColor: "#1f242c",
+            color: "#fff",
+            cursor: "pointer",
+            fontWeight: "600",
+            fontSize: "0.85rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            borderLeft: "1px solid #333",
+            alignSelf: "stretch",
+          }}
+        >
+          {isFullscreen ? "Exit Fullscreen ✕" : "Fullscreen ⛶"}
+        </button>
       </div>
 
-      <div style={{ padding: '20px' }}>
-        <div style={{ position: 'relative', width: '100%', height: '680px', backgroundColor: '#0b0e14', borderRadius: '8px', border: '1px solid #333', overflow: 'hidden' }}>
+      <div style={{
+        padding: '20px',
+        ...(isFullscreen ? {
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden'
+        } : {})
+      }}>
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          height: isFullscreen ? 'calc(100vh - 350px)' : '680px',
+          backgroundColor: '#0b0e14',
+          borderRadius: '8px',
+          border: '1px solid #333',
+          overflow: 'hidden',
+          ...(isFullscreen ? { flex: 1, minHeight: '250px' } : {})
+        }}>
           {/* Zoom Controls Overlay */}
           <div style={{ position: 'absolute', right: '15px', bottom: '15px', display: 'flex', flexDirection: 'column', gap: '5px', zIndex: 10 }}>
             <button onClick={zoomIn} style={{ width: '30px', height: '30px', borderRadius: '4px', border: '1px solid #444', backgroundColor: '#161b22', color: '#fff', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}>+</button>
@@ -413,6 +517,7 @@ export default function WirelessExplorer() {
           </div>
 
           <svg 
+            ref={svgRef}
             width="100%" 
             height="100%" 
             viewBox="0 0 1000 680" 
@@ -642,7 +747,18 @@ export default function WirelessExplorer() {
         )}
 
         {/* Info Panel */}
-        <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#161b22', borderRadius: '8px', border: '1px solid #333', minHeight: '150px' }}>
+        <div style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: '#161b22',
+          borderRadius: '8px',
+          border: '1px solid #333',
+          minHeight: '150px',
+          ...(isFullscreen ? {
+            maxHeight: '200px',
+            overflowY: 'auto'
+          } : {})
+        }}>
           {selectedDevice ? (
             <div style={{ animation: 'fadeIn 0.3s ease' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px', borderBottom: '1px solid #333', paddingBottom: '10px' }}>

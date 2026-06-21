@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type Protocol =
   | "ALL"
@@ -363,6 +363,48 @@ export default function NetworkExplorer() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragged, setDragged] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const svgRef = useRef<SVGSVGElement | null>(null);
+
+  useEffect(() => {
+    const svgEl = svgRef.current;
+    if (!svgEl) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (e.ctrlKey) {
+        e.preventDefault();
+        const zoomFactor = 0.05;
+        if (e.deltaY < 0) {
+          setScale((prev) => Math.min(prev + zoomFactor, 2.5));
+        } else {
+          setScale((prev) => Math.max(prev - zoomFactor, 0.5));
+        }
+      }
+    };
+
+    svgEl.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      svgEl.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsFullscreen(false);
+      }
+    };
+    if (isFullscreen) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isFullscreen]);
 
   const currentData = selectedLab === "1-6" ? lab1to6Data : lab7to9Data;
 
@@ -420,12 +462,29 @@ export default function NetworkExplorer() {
   return (
     <div
       style={{
-        marginTop: "30px",
-        border: "1px solid #ddd",
-        borderRadius: "12px",
+        marginTop: isFullscreen ? "0px" : "30px",
+        marginRight: "0px",
+        marginBottom: "0px",
+        marginLeft: "0px",
+        paddingTop: "0px",
+        paddingRight: "0px",
+        paddingBottom: "0px",
+        paddingLeft: "0px",
+        border: isFullscreen ? "none" : "1px solid #ddd",
+        borderRadius: isFullscreen ? "0px" : "12px",
         overflow: "hidden",
         backgroundColor: "#0b0e14",
         color: "#fff",
+        ...(isFullscreen ? {
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          zIndex: 9999,
+          display: "flex",
+          flexDirection: "column",
+        } : {})
       }}
     >
       {/* Tabs */}
@@ -434,47 +493,81 @@ export default function NetworkExplorer() {
           display: "flex",
           borderBottom: "1px solid #333",
           backgroundColor: "#161b22",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
         }}
       >
+        <div style={{ display: "flex", flex: 1 }}>
+          <button
+            onClick={() => {
+              setSelectedLab("1-6");
+              setSelectedDevice(null);
+              setActiveProtocol("ALL");
+            }}
+            style={{
+              flex: 1,
+              padding: "12px",
+              border: "none",
+              cursor: "pointer",
+              backgroundColor: selectedLab === "1-6" ? "#0b0e14" : "transparent",
+              color: selectedLab === "1-6" ? "#fff" : "#888",
+              fontWeight: selectedLab === "1-6" ? "bold" : "normal",
+            }}
+          >
+            Enterprise Architecture
+          </button>
+          <button
+            onClick={() => {
+              setSelectedLab("7-9");
+              setSelectedDevice(null);
+              setActiveProtocol("ALL");
+            }}
+            style={{
+              flex: 1,
+              padding: "12px",
+              border: "none",
+              cursor: "pointer",
+              backgroundColor: selectedLab === "7-9" ? "#0b0e14" : "transparent",
+              color: selectedLab === "7-9" ? "#fff" : "#888",
+              fontWeight: selectedLab === "7-9" ? "bold" : "normal",
+            }}
+          >
+            MPLS L3VPN
+          </button>
+        </div>
         <button
-          onClick={() => {
-            setSelectedLab("1-6");
-            setSelectedDevice(null);
-            setActiveProtocol("ALL");
-          }}
+          onClick={() => setIsFullscreen(!isFullscreen)}
           style={{
-            flex: 1,
-            padding: "12px",
+            padding: "12px 20px",
             border: "none",
+            backgroundColor: "#1f242c",
+            color: "#fff",
             cursor: "pointer",
-            backgroundColor: selectedLab === "1-6" ? "#0b0e14" : "transparent",
-            color: selectedLab === "1-6" ? "#fff" : "#888",
-            fontWeight: selectedLab === "1-6" ? "bold" : "normal",
+            fontWeight: "600",
+            fontSize: "0.85rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            borderLeft: "1px solid #333",
+            alignSelf: "stretch",
           }}
         >
-          Enterprise Architecture
-        </button>
-        <button
-          onClick={() => {
-            setSelectedLab("7-9");
-            setSelectedDevice(null);
-            setActiveProtocol("ALL");
-          }}
-          style={{
-            flex: 1,
-            padding: "12px",
-            border: "none",
-            cursor: "pointer",
-            backgroundColor: selectedLab === "7-9" ? "#0b0e14" : "transparent",
-            color: selectedLab === "7-9" ? "#fff" : "#888",
-            fontWeight: selectedLab === "7-9" ? "bold" : "normal",
-          }}
-        >
-          MPLS L3VPN
+          {isFullscreen ? "Exit Fullscreen ✕" : "Fullscreen ⛶"}
         </button>
       </div>
 
-      <div style={{ padding: "20px" }}>
+      <div
+        style={{
+          padding: "20px",
+          ...(isFullscreen ? {
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            overflow: "hidden",
+          } : {}),
+        }}
+      >
         {/* Protocol Filter */}
         <div
           style={{
@@ -510,11 +603,12 @@ export default function NetworkExplorer() {
           style={{
             position: "relative",
             width: "100%",
-            height: "500px",
+            height: isFullscreen ? "calc(100vh - 350px)" : "500px",
             backgroundColor: "#0b0e14",
             borderRadius: "8px",
             border: "1px solid #333",
             overflow: "hidden",
+            ...(isFullscreen ? { flex: 1, minHeight: "250px" } : {})
           }}
         >
           {/* Zoom Controls Overlay */}
@@ -579,6 +673,7 @@ export default function NetworkExplorer() {
           </div>
 
           <svg
+            ref={svgRef}
             width="100%"
             height="100%"
             viewBox="0 0 1000 500"
@@ -938,6 +1033,10 @@ export default function NetworkExplorer() {
             borderRadius: "8px",
             border: "1px solid #333",
             minHeight: "150px",
+            ...(isFullscreen ? {
+              maxHeight: "220px",
+              overflowY: "auto"
+            } : {})
           }}
         >
           {selectedDevice ? (
