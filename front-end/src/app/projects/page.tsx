@@ -64,21 +64,18 @@ const projectList = [
 
 export default function Projects() {
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <div style={{ textAlign: "left", marginBottom: "50px" }}>
         <h1
           className="section-title"
-          style={{ fontSize: "2.5rem", marginBottom: "15px", color: "#000" }}
+          style={{ fontSize: "2.5rem", marginBottom: "15px", color: "var(--heading-color)" }}
         >
           My Projects
         </h1>
         <p
           style={{
             fontSize: "1.15rem",
-            color: "#666",
+            color: "var(--text-muted)",
             maxWidth: "700px",
             lineHeight: "1.6",
           }}
@@ -105,13 +102,13 @@ export default function Projects() {
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)";
-              e.currentTarget.style.borderColor = "#eaeaea";
+              e.currentTarget.style.borderColor = "var(--border-color)";
             }}
             style={{
               display: "flex",
               flexDirection: "column",
-              background: "#fff",
-              border: "1px solid #eaeaea",
+              background: "var(--card-bg)",
+              border: "1px solid var(--border-color)",
               borderRadius: "12px",
               padding: "24px",
               boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
@@ -145,6 +142,7 @@ export default function Projects() {
                 fontWeight: "bold",
                 marginBottom: "12px",
                 lineHeight: "1.4",
+                color: "var(--heading-color)",
               }}
             >
               {project.title}
@@ -153,7 +151,7 @@ export default function Projects() {
             {/* Description */}
             <p
               style={{
-                color: "#666",
+                color: "var(--text-muted)",
                 fontSize: "0.95rem",
                 lineHeight: "1.6",
                 marginBottom: "20px",
@@ -177,10 +175,11 @@ export default function Projects() {
                   key={tag}
                   style={{
                     fontSize: "0.75rem",
-                    color: "#555",
-                    backgroundColor: "#f4f4f4",
+                    color: "var(--text-muted)",
+                    backgroundColor: "var(--bg-color)",
                     padding: "3px 8px",
                     borderRadius: "4px",
+                    border: "1px solid var(--border-color)",
                   }}
                 >
                   {tag}
@@ -199,18 +198,20 @@ export default function Projects() {
                   width: "100%",
                   padding: "10px 16px",
                   borderRadius: "6px",
-                  backgroundColor: "#000",
-                  color: "#fff",
+                  backgroundColor: "var(--heading-color)",
+                  color: "var(--inverse-text)",
                   fontSize: "0.9rem",
                   fontWeight: "bold",
-                  transition: "background-color 0.2s",
+                  transition: "background-color 0.2s, color 0.2s",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = project.color)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#000")
-                }
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = project.color;
+                  e.currentTarget.style.color = "#fff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--heading-color)";
+                  e.currentTarget.style.color = "var(--inverse-text)";
+                }}
               >
                 View Project Details
               </Link>

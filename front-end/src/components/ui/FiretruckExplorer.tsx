@@ -33,11 +33,11 @@ export default function FiretruckExplorer() {
         paddingRight: "0px",
         paddingBottom: "0px",
         paddingLeft: "0px",
-        border: isFullscreen ? "none" : "1px solid #ddd",
+        border: isFullscreen ? "none" : "1px solid #333",
         borderRadius: isFullscreen ? "0px" : "12px",
         overflow: "hidden",
-        backgroundColor: "#0b0e14",
-        color: "#fff",
+        backgroundColor: "var(--bg-color)",
+        color: "var(--text-main)",
         ...(isFullscreen
           ? {
               position: "fixed",
@@ -48,6 +48,9 @@ export default function FiretruckExplorer() {
               zIndex: 9999,
               display: "flex",
               flexDirection: "column",
+              backdropFilter: "blur(30px)",
+              WebkitBackdropFilter: "blur(30px)",
+              backgroundColor: "var(--card-bg)",
             }
           : {}),
       }}
@@ -56,7 +59,7 @@ export default function FiretruckExplorer() {
         style={{
           display: "flex",
           borderBottom: "1px solid #333",
-          backgroundColor: "#161b22",
+          backgroundColor: "var(--card-bg)",
           justifyContent: "space-between",
           alignItems: "center",
           flexWrap: "wrap",
@@ -67,7 +70,7 @@ export default function FiretruckExplorer() {
             fontWeight: "bold",
             fontSize: "0.9rem",
             paddingLeft: "20px",
-            color: "#fff",
+            color: "var(--text-main)",
           }}
         >
           Deployment Topology
@@ -77,8 +80,8 @@ export default function FiretruckExplorer() {
           style={{
             padding: "12px 20px",
             border: "none",
-            backgroundColor: "#1f242c",
-            color: "#fff",
+            backgroundColor: "var(--card-bg)",
+            color: "var(--text-main)",
             cursor: "pointer",
             fontWeight: "600",
             fontSize: "0.85rem",
@@ -111,7 +114,7 @@ export default function FiretruckExplorer() {
             position: "relative",
             width: "100%",
             height: isFullscreen ? "calc(100vh - 350px)" : "480px",
-            backgroundColor: "#0b0e14",
+            backgroundColor: "var(--bg-color)",
             borderRadius: "8px",
             border: "1px solid #333",
             overflow: "hidden",
@@ -136,9 +139,9 @@ export default function FiretruckExplorer() {
                 width: "30px",
                 height: "30px",
                 borderRadius: "4px",
-                border: "1px solid #444",
-                backgroundColor: "#161b22",
-                color: "#fff",
+                border: "1px solid #30363d",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontWeight: "bold",
                 fontSize: "14px",
@@ -152,9 +155,9 @@ export default function FiretruckExplorer() {
                 width: "30px",
                 height: "30px",
                 borderRadius: "4px",
-                border: "1px solid #444",
-                backgroundColor: "#161b22",
-                color: "#fff",
+                border: "1px solid #30363d",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontWeight: "bold",
                 fontSize: "14px",
@@ -168,9 +171,9 @@ export default function FiretruckExplorer() {
                 width: "45px",
                 height: "25px",
                 borderRadius: "4px",
-                border: "1px solid #444",
-                backgroundColor: "#161b22",
-                color: "#fff",
+                border: "1px solid #30363d",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontSize: "10px",
               }}
@@ -210,14 +213,14 @@ export default function FiretruckExplorer() {
                 height="420"
                 rx="10"
                 fill="none"
-                stroke="#888"
+                stroke="var(--text-muted)"
                 strokeWidth="1.5"
                 strokeDasharray="4,4"
               />
               <text
                 x="730"
                 y="22"
-                fill="#e2e8f0"
+                fill="var(--text-muted)"
                 textAnchor="middle"
                 style={{
                   fontSize: "11.5px",
@@ -427,8 +430,8 @@ export default function FiretruckExplorer() {
                       width={node.width}
                       height={node.height}
                       rx="6"
-                      fill="#161b22"
-                      stroke={isSelected ? "#fff" : node.color}
+                      fill="var(--card-bg)"
+                      stroke={isSelected ? "var(--text-main)" : node.color}
                       strokeWidth={isSelected ? "2.5" : "1.5"}
                       style={{
                         transition: "all 0.2s",
@@ -438,7 +441,7 @@ export default function FiretruckExplorer() {
                     <text
                       x="0"
                       y="-4"
-                      fill="#fff"
+                      fill="var(--text-main)"
                       textAnchor="middle"
                       style={{ fontSize: "11px", fontWeight: "bold" }}
                     >
@@ -448,7 +451,7 @@ export default function FiretruckExplorer() {
                     <text
                       x="0"
                       y="12"
-                      fill="#cbd5e1"
+                      fill="var(--text-muted)"
                       textAnchor="middle"
                       style={{ fontSize: "8.5px" }}
                     >
@@ -467,7 +470,7 @@ export default function FiretruckExplorer() {
             marginTop: "15px",
             minHeight: "140px",
             padding: "16px",
-            backgroundColor: "#161b22",
+            backgroundColor: "var(--card-bg)",
             borderRadius: "8px",
             border: "1px solid #333",
             display: "flex",
@@ -491,7 +494,7 @@ export default function FiretruckExplorer() {
                   style={{
                     marginTop: "8px",
                     fontSize: "0.85rem",
-                    color: "#ccc",
+                    color: "var(--text-main)",
                     lineHeight: "1.5",
                   }}
                 >
@@ -506,7 +509,7 @@ export default function FiretruckExplorer() {
                 alignItems: "center",
                 justifyContent: "center",
                 height: "100px",
-                color: "#666",
+                color: "var(--text-main)",
                 fontSize: "0.9rem",
               }}
             >

@@ -5,10 +5,7 @@ import NetworkExplorer from "@/components/ui/NetworkExplorer";
 
 export default function AdvancedEnterpriseRouting() {
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <div style={{ marginBottom: "25px" }}>
         <Link
           href="/projects"
@@ -16,23 +13,23 @@ export default function AdvancedEnterpriseRouting() {
             display: "inline-flex",
             alignItems: "center",
             gap: "6px",
-            color: "#666",
+            color: "var(--text-muted)",
             fontSize: "0.95rem",
             transition: "color 0.2s",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#0070f3")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--node-blue)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
         >
           ← Back to Projects
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
+      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "var(--heading-color)" }}>
         Advanced Enterprise Routing & MPLS Backbone
       </h1>
       <p
         style={{
-          color: "#0070f3",
+          color: "var(--node-blue)",
           fontWeight: "600",
           fontSize: "1rem",
           marginBottom: "15px",
@@ -43,7 +40,7 @@ export default function AdvancedEnterpriseRouting() {
 
       <div
         style={{
-          color: "#555",
+          color: "var(--text-main)",
           fontSize: "1.05rem",
           lineHeight: "1.6",
           marginBottom: "30px",
@@ -66,10 +63,10 @@ export default function AdvancedEnterpriseRouting() {
       </div>
 
       <div style={{ margin: "40px 0" }}>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "10px" }}>
+        <h2 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "var(--heading-color)" }}>
           Interactive Network Topology Explorer
         </h2>
-        <p style={{ color: "#666", fontSize: "0.9rem", marginBottom: "15px" }}>
+        <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "15px" }}>
           Filter by layer (IS-IS, BGP, VRF, etc.) and click on the network
           routers to view their live interface IPs and routing configuration
           flags. Use Ctrl + scroll to zoom.
@@ -80,11 +77,11 @@ export default function AdvancedEnterpriseRouting() {
       <div
         style={{
           marginTop: "40px",
-          borderTop: "1px solid #eee",
+          borderTop: "1px solid var(--border-color)",
           paddingTop: "30px",
         }}
       >
-        <h3 style={{ marginBottom: "15px" }}>Technical Highlights & Skills</h3>
+        <h3 style={{ marginBottom: "15px", color: "var(--heading-color)" }}>Technical Highlights & Skills</h3>
         <ul
           style={{
             display: "grid",
@@ -95,56 +92,56 @@ export default function AdvancedEnterpriseRouting() {
         >
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #0070f3",
+              borderLeft: "4px solid var(--node-blue)",
             }}
           >
-            <strong>IGP Core (IS-IS)</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>IGP Core (IS-IS)</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Configured IS-IS L1/L2 routing with loopback interfaces as Net
               Entities and adjusted metrics for path preference.
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #0070f3",
+              borderLeft: "4px solid var(--node-blue)",
             }}
           >
-            <strong>MPLS / LDP</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>MPLS / LDP</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Activated Label Distribution Protocol (LDP) across the backbone,
               mapping loopbacks for label propagation.
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #0070f3",
+              borderLeft: "4px solid var(--node-blue)",
             }}
           >
-            <strong>MP-BGP & VPNv4</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>MP-BGP & VPNv4</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Peer-to-peer BGP sessions for exchanging VPNv4 routes with target
               communities (Route Distinguishers & Route Targets).
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #0070f3",
+              borderLeft: "4px solid var(--node-blue)",
             }}
           >
-            <strong>CE-to-CE Security (IPsec)</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>CE-to-CE Security (IPsec)</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Created a secure virtual tunnel over the untrusted carrier,
               utilizing IKEv2 profiles and strong cryptographic proposals.
             </p>

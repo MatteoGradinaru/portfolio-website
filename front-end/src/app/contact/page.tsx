@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
     <section className="section">
-      <h2 className="section-title" style={{ color: "#000" }}>Contact</h2>
+      <h2 className="section-title" style={{ color: "var(--heading-color)" }}>Contact</h2>
       <p>Some text about the contact...</p>
 
       <div style={{ marginTop: "30px" }}>

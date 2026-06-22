@@ -5,10 +5,7 @@ import WirelessExplorer from "@/components/ui/WirelessExplorer";
 
 export default function SecureEnterpriseWireless() {
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <div style={{ marginBottom: "25px" }}>
         <Link
           href="/projects"
@@ -16,23 +13,26 @@ export default function SecureEnterpriseWireless() {
             display: "inline-flex",
             alignItems: "center",
             gap: "6px",
-            color: "#666",
+            color: "var(--text-muted)",
             fontSize: "0.95rem",
             transition: "color 0.2s",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#0070f3")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--node-blue)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
         >
           ← Back to Projects
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
+      <h1
+        className="section-title"
+        style={{ margin: "10px 0 5px 0", color: "var(--heading-color)" }}
+      >
         Secure Enterprise Wireless LAN (WLAN) Infrastructure
       </h1>
       <p
         style={{
-          color: "#2979ff",
+          color: "var(--node-blue)",
           fontWeight: "600",
           fontSize: "1rem",
           marginBottom: "15px",
@@ -43,7 +43,7 @@ export default function SecureEnterpriseWireless() {
 
       <div
         style={{
-          color: "#555",
+          color: "var(--text-main)",
           fontSize: "1.05rem",
           lineHeight: "1.6",
           marginBottom: "30px",
@@ -68,10 +68,10 @@ export default function SecureEnterpriseWireless() {
       </div>
 
       <div style={{ margin: "40px 0" }}>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "10px" }}>
+        <h2 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "var(--heading-color)" }}>
           Interactive Wireless Topology Explorer
         </h2>
-        <p style={{ color: "#666", fontSize: "0.9rem", marginBottom: "15px" }}>
+        <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "15px" }}>
           Explore the integration between virtual hypervisors and physical
           network hardware. Click on the devices or filter by layer to inspect
           configurations.
@@ -82,11 +82,11 @@ export default function SecureEnterpriseWireless() {
       <div
         style={{
           marginTop: "40px",
-          borderTop: "1px solid #eee",
+          borderTop: "1px solid var(--border-color)",
           paddingTop: "30px",
         }}
       >
-        <h3 style={{ marginBottom: "15px" }}>Key Implementation Details</h3>
+        <h3 style={{ marginBottom: "15px", color: "var(--heading-color)" }}>Key Implementation Details</h3>
         <ul
           style={{
             display: "grid",
@@ -97,56 +97,56 @@ export default function SecureEnterpriseWireless() {
         >
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #2979ff",
+              borderLeft: "4px solid var(--node-blue)",
             }}
           >
-            <strong>Cisco Catalyst WLC (9800-CL)</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>Cisco Catalyst WLC (9800-CL)</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Configured profile policies, RF tags, and AP join profiles using
               DHCP Option 43 overrides for CAPWAP discovery.
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #2979ff",
+              borderLeft: "4px solid var(--node-blue)",
             }}
           >
-            <strong>FreeRADIUS (802.1X)</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>FreeRADIUS (802.1X)</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Deployed FreeRADIUS inside a Linux LXC container, configuring
               clients and authentication profiles for EAP security protocols.
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #2979ff",
+              borderLeft: "4px solid var(--node-blue)",
             }}
           >
-            <strong>Firewall & Gateways</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>Firewall & Gateways</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Managed inter-VLAN blocking policies in OPNsense to prevent IoT or
               Guest clients from pinging or reaching management networks.
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #2979ff",
+              borderLeft: "4px solid var(--node-blue)",
             }}
           >
-            <strong>Physical VLAN trunking</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>Physical VLAN trunking</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Configured Cisco Switch interfaces with trunk encapsulation,
               matching native VLAN commands on uplink interfaces.
             </p>

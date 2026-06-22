@@ -66,11 +66,11 @@ export default function NetworkExplorer() {
         paddingRight: "0px",
         paddingBottom: "0px",
         paddingLeft: "0px",
-        border: isFullscreen ? "none" : "1px solid #ddd",
+        border: isFullscreen ? "none" : "1px solid #333",
         borderRadius: isFullscreen ? "0px" : "12px",
         overflow: "hidden",
-        backgroundColor: "#0b0e14",
-        color: "#fff",
+        backgroundColor: "var(--bg-color)",
+        color: "var(--text-main)",
         ...(isFullscreen
           ? {
               position: "fixed",
@@ -81,6 +81,9 @@ export default function NetworkExplorer() {
               zIndex: 9999,
               display: "flex",
               flexDirection: "column",
+              backdropFilter: "blur(30px)",
+              WebkitBackdropFilter: "blur(30px)",
+              backgroundColor: "var(--card-bg)",
             }
           : {}),
       }}
@@ -90,7 +93,7 @@ export default function NetworkExplorer() {
         style={{
           display: "flex",
           borderBottom: "1px solid #333",
-          backgroundColor: "#161b22",
+          backgroundColor: "var(--card-bg)",
           justifyContent: "space-between",
           alignItems: "center",
           flexWrap: "wrap",
@@ -109,8 +112,8 @@ export default function NetworkExplorer() {
               border: "none",
               cursor: "pointer",
               backgroundColor:
-                selectedLab === "1-6" ? "#0b0e14" : "transparent",
-              color: selectedLab === "1-6" ? "#fff" : "#888",
+                selectedLab === "1-6" ? "var(--bg-color)" : "transparent",
+              color: selectedLab === "1-6" ? "var(--text-main)" : "var(--text-muted)",
               fontWeight: selectedLab === "1-6" ? "bold" : "normal",
             }}
           >
@@ -126,10 +129,11 @@ export default function NetworkExplorer() {
               flex: 1,
               padding: "12px",
               border: "none",
+              borderLeft: "1px solid #333",
               cursor: "pointer",
               backgroundColor:
-                selectedLab === "7-9" ? "#0b0e14" : "transparent",
-              color: selectedLab === "7-9" ? "#fff" : "#888",
+                selectedLab === "7-9" ? "var(--bg-color)" : "transparent",
+              color: selectedLab === "7-9" ? "var(--text-main)" : "var(--text-muted)",
               fontWeight: selectedLab === "7-9" ? "bold" : "normal",
             }}
           >
@@ -141,8 +145,8 @@ export default function NetworkExplorer() {
           style={{
             padding: "12px 20px",
             border: "none",
-            backgroundColor: "#1f242c",
-            color: "#fff",
+            backgroundColor: "var(--card-bg)",
+            color: "var(--text-main)",
             cursor: "pointer",
             fontWeight: "600",
             fontSize: "0.85rem",
@@ -189,8 +193,8 @@ export default function NetworkExplorer() {
                 borderRadius: "20px",
                 border: "1px solid #333",
                 backgroundColor:
-                  activeProtocol === proto ? "#2979ff" : "#161b22",
-                color: activeProtocol === proto ? "#fff" : "#ccc",
+                  activeProtocol === proto ? "var(--node-blue)" : "var(--card-bg)",
+                color: activeProtocol === proto ? "#fff" : "var(--text-muted)",
                 cursor: "pointer",
                 fontSize: "0.8rem",
                 transition: "all 0.2s",
@@ -224,7 +228,7 @@ export default function NetworkExplorer() {
             position: "relative",
             width: "100%",
             height: isFullscreen ? "calc(100vh - 350px)" : "500px",
-            backgroundColor: "#0b0e14",
+            backgroundColor: "var(--bg-color)",
             borderRadius: "8px",
             border: "1px solid #333",
             overflow: "hidden",
@@ -249,9 +253,9 @@ export default function NetworkExplorer() {
                 width: "30px",
                 height: "30px",
                 borderRadius: "4px",
-                border: "1px solid #444",
-                backgroundColor: "#161b22",
-                color: "#fff",
+                border: "1px solid #30363d",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontWeight: "bold",
                 fontSize: "14px",
@@ -265,9 +269,9 @@ export default function NetworkExplorer() {
                 width: "30px",
                 height: "30px",
                 borderRadius: "4px",
-                border: "1px solid #444",
-                backgroundColor: "#161b22",
-                color: "#fff",
+                border: "1px solid #30363d",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontWeight: "bold",
                 fontSize: "14px",
@@ -281,9 +285,9 @@ export default function NetworkExplorer() {
                 width: "45px",
                 height: "25px",
                 borderRadius: "4px",
-                border: "1px solid #444",
-                backgroundColor: "#161b22",
-                color: "#fff",
+                border: "1px solid #30363d",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontSize: "10px",
               }}
@@ -577,11 +581,11 @@ export default function NetworkExplorer() {
                       width="120"
                       height="50"
                       rx="4"
-                      fill="#0b0e14"
+                      fill="var(--card-bg)"
                       stroke={
                         selectedDevice?.id === device.id
-                          ? "#fff"
-                          : device.color || "#00e5ff"
+                          ? "var(--text-main)"
+                          : device.color || "var(--node-cyan)"
                       }
                       strokeWidth={selectedDevice?.id === device.id ? "3" : "2"}
                       className="device-rect"
@@ -590,7 +594,7 @@ export default function NetworkExplorer() {
                       x={device.x}
                       y={device.y + 5}
                       textAnchor="middle"
-                      fill="#fff"
+                      fill="var(--text-main)"
                       style={{
                         fontSize: "14px",
                         fontWeight: "bold",
@@ -629,7 +633,7 @@ export default function NetworkExplorer() {
               = remote loopback
             </div>
             <div
-              style={{ marginTop: "4px", fontSize: "0.8rem", color: "#888" }}
+              style={{ marginTop: "4px", fontSize: "0.8rem", color: "var(--text-main)" }}
             >
               L3VPN provides{" "}
               <span style={{ color: "#00e5ff", fontWeight: "600" }}>
@@ -648,7 +652,7 @@ export default function NetworkExplorer() {
           style={{
             marginTop: "20px",
             padding: "20px",
-            backgroundColor: "#161b22",
+            backgroundColor: "var(--card-bg)",
             borderRadius: "8px",
             border: "1px solid #333",
             minHeight: "150px",
@@ -676,7 +680,7 @@ export default function NetworkExplorer() {
                   <h3
                     style={{
                       margin: 0,
-                      color: selectedDevice.color || "#00e5ff",
+                      color: selectedDevice.color || "var(--node-cyan)",
                     }}
                   >
                     {selectedDevice.name} Configuration
@@ -692,7 +696,7 @@ export default function NetworkExplorer() {
                           padding: "2px 6px",
                           backgroundColor: "#333",
                           borderRadius: "10px",
-                          color: "#888",
+                          color: "#fff",
                         }}
                       >
                         {p}
@@ -712,7 +716,7 @@ export default function NetworkExplorer() {
                 <div>
                   <h5
                     style={{
-                      color: "#888",
+                      color: "var(--text-main)",
                       marginBottom: "10px",
                       fontSize: "0.7rem",
                       textTransform: "uppercase",
@@ -731,7 +735,7 @@ export default function NetworkExplorer() {
                       <div
                         key={i}
                         style={{
-                          backgroundColor: "#0b0e14",
+                          backgroundColor: "var(--bg-color)",
                           padding: "8px",
                           borderRadius: "4px",
                           fontSize: "0.85rem",
@@ -765,7 +769,7 @@ export default function NetworkExplorer() {
                 <div>
                   <h5
                     style={{
-                      color: "#888",
+                      color: "var(--text-main)",
                       marginBottom: "10px",
                       fontSize: "0.7rem",
                       textTransform: "uppercase",
@@ -787,7 +791,7 @@ export default function NetworkExplorer() {
                           fontSize: "0.85rem",
                           padding: "4px 10px",
                           borderLeft: "2px solid #333",
-                          color: "#ccc",
+                          color: "var(--text-main)",
                         }}
                       >
                         {c}
