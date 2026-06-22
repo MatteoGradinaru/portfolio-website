@@ -45,10 +45,7 @@ export default function KuLeuvenEventRegistration() {
   }, [activeScreenshotIdx]);
 
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <div style={{ marginBottom: "25px" }}>
         <Link
           href="/projects"
@@ -67,7 +64,10 @@ export default function KuLeuvenEventRegistration() {
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
+      <h1
+        className="section-title"
+        style={{ margin: "10px 0 5px 0", color: "#000" }}
+      >
         KU Leuven Event Registration & Attendance Management System
       </h1>
       <p

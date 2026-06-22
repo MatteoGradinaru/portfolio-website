@@ -64,10 +64,7 @@ const projectList = [
 
 export default function Projects() {
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <div style={{ textAlign: "left", marginBottom: "50px" }}>
         <h1
           className="section-title"

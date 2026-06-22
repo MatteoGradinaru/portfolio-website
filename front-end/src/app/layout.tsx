@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "../styles/globals.css";
+import "../styles/background.css";
+
+import Background from "@/components/layout/Background";
 
 export const metadata: Metadata = {
   title: "Personal Portfolio",
@@ -15,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Background />
         <div className="container">
           <header className="header">
             <div className="logo">

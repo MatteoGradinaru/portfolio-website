@@ -5,10 +5,7 @@ import WirelessExplorer from "@/components/ui/WirelessExplorer";
 
 export default function SecureEnterpriseWireless() {
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <div style={{ marginBottom: "25px" }}>
         <Link
           href="/projects"
@@ -27,7 +24,10 @@ export default function SecureEnterpriseWireless() {
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
+      <h1
+        className="section-title"
+        style={{ margin: "10px 0 5px 0", color: "#000" }}
+      >
         Secure Enterprise Wireless LAN (WLAN) Infrastructure
       </h1>
       <p

@@ -2,10 +2,7 @@
 
 export default function About() {
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <h2
         className="section-title"
         style={{ fontSize: "2.5rem", marginBottom: "20px", color: "#000" }}

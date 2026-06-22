@@ -5,10 +5,7 @@ import FiretruckExplorer from "@/components/ui/FiretruckExplorer";
 
 export default function AutonomousSmartFiretruck() {
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <div style={{ marginBottom: "25px" }}>
         <Link
           href="/projects"
@@ -27,7 +24,10 @@ export default function AutonomousSmartFiretruck() {
         </Link>
       </div>
 
-      <h1 className="section-title" style={{ margin: "10px 0 5px 0", color: "#000" }}>
+      <h1
+        className="section-title"
+        style={{ margin: "10px 0 5px 0", color: "#000" }}
+      >
         Autonomous Smart Firetruck & Real-Time IoT Dashboard
       </h1>
       <p

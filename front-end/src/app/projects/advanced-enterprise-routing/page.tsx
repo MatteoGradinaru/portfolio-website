@@ -5,10 +5,7 @@ import NetworkExplorer from "@/components/ui/NetworkExplorer";
 
 export default function AdvancedEnterpriseRouting() {
   return (
-    <section
-      className="section"
-      style={{ maxWidth: "1200px", margin: "0 auto" }}
-    >
+    <section className="section">
       <div style={{ marginBottom: "25px" }}>
         <Link
           href="/projects"
