@@ -64,11 +64,11 @@ export default function WirelessExplorer() {
     <div
       style={{
         marginTop: isFullscreen ? "0px" : "15px",
-        border: isFullscreen ? "none" : "1px solid #2d3139",
+        border: isFullscreen ? "none" : "1px solid #333",
         borderRadius: isFullscreen ? "0px" : "12px",
         overflow: "hidden",
-        backgroundColor: "#070a0e",
-        color: "#f0f2f5",
+        backgroundColor: "var(--bg-color)",
+        color: "var(--text-main)",
         display: "flex",
         flexDirection: "column",
         fontFamily: "Inter, system-ui, sans-serif",
@@ -82,6 +82,9 @@ export default function WirelessExplorer() {
               zIndex: 9999,
               display: "flex",
               flexDirection: "column",
+              backdropFilter: "blur(30px)",
+              WebkitBackdropFilter: "blur(30px)",
+              backgroundColor: "var(--card-bg)",
             }
           : {}),
       }}
@@ -91,7 +94,7 @@ export default function WirelessExplorer() {
         style={{
           display: "flex",
           borderBottom: "1px solid #333",
-          backgroundColor: "#161b22",
+          backgroundColor: "var(--card-bg)",
           justifyContent: "space-between",
           alignItems: "center",
           flexWrap: "wrap",
@@ -102,7 +105,7 @@ export default function WirelessExplorer() {
             fontWeight: "bold",
             fontSize: "0.9rem",
             paddingLeft: "20px",
-            color: "#fff",
+            color: "var(--text-main)",
           }}
         >
           Wireless Infrastructure Topology
@@ -112,8 +115,8 @@ export default function WirelessExplorer() {
           style={{
             padding: "12px 20px",
             border: "none",
-            backgroundColor: "#1f242c",
-            color: "#fff",
+            backgroundColor: "var(--card-bg)",
+            color: "var(--text-main)",
             cursor: "pointer",
             fontWeight: "600",
             fontSize: "0.85rem",
@@ -171,8 +174,8 @@ export default function WirelessExplorer() {
                 borderRadius: "20px",
                 border: "1px solid #333",
                 backgroundColor:
-                  activeFilter === btn.id ? "#2979ff" : "#161b22",
-                color: activeFilter === btn.id ? "#fff" : "#ccc",
+                  activeFilter === btn.id ? "var(--node-blue)" : "var(--card-bg)",
+                color: activeFilter === btn.id ? "#fff" : "var(--text-muted)",
                 cursor: "pointer",
                 fontSize: "0.8rem",
                 transition: "all 0.2s",
@@ -189,7 +192,7 @@ export default function WirelessExplorer() {
             position: "relative",
             width: "100%",
             height: isFullscreen ? "calc(100vh - 350px)" : "680px",
-            backgroundColor: "#070a0e",
+            backgroundColor: "var(--bg-color)",
             borderRadius: "8px",
             border: "1px solid #333",
             overflow: "hidden",
@@ -215,8 +218,8 @@ export default function WirelessExplorer() {
                 height: "32px",
                 borderRadius: "6px",
                 border: "1px solid #30363d",
-                backgroundColor: "#161b22",
-                color: "#fff",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontWeight: "bold",
                 fontSize: "16px",
@@ -231,8 +234,8 @@ export default function WirelessExplorer() {
                 height: "32px",
                 borderRadius: "6px",
                 border: "1px solid #30363d",
-                backgroundColor: "#161b22",
-                color: "#fff",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontWeight: "bold",
                 fontSize: "16px",
@@ -247,8 +250,8 @@ export default function WirelessExplorer() {
                 height: "26px",
                 borderRadius: "4px",
                 border: "1px solid #30363d",
-                backgroundColor: "#161b22",
-                color: "#c9d1d9",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--text-main)",
                 cursor: "pointer",
                 fontSize: "9px",
                 fontWeight: "bold",
@@ -282,7 +285,7 @@ export default function WirelessExplorer() {
                 height="40"
                 patternUnits="userSpaceOnUse"
               >
-                <circle cx="2" cy="2" r="1.5" fill="#161b22" />
+                <circle cx="2" cy="2" r="1.5" fill="var(--bg-color)" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
@@ -302,7 +305,7 @@ export default function WirelessExplorer() {
                 height="903"
                 rx="12"
                 fill="none"
-                stroke="#888"
+                stroke="var(--text-muted)"
                 strokeWidth="2.5"
                 strokeDasharray="6,6"
                 style={{
@@ -313,7 +316,7 @@ export default function WirelessExplorer() {
               <text
                 x="639.5"
                 y="376"
-                fill="#e2e8f0"
+                fill="var(--text-muted)"
                 textAnchor="middle"
                 style={{
                   fontSize: "14px",
@@ -339,15 +342,15 @@ export default function WirelessExplorer() {
                   width="237"
                   height="78"
                   rx="6"
-                  fill="#0d1117"
-                  stroke="#8b949e"
+                  fill="var(--card-bg)"
+                  stroke="var(--text-muted)"
                   strokeWidth="2"
                 />
                 <text
                   x="636.5"
                   y="422"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="12"
                   fontWeight="bold"
                 >
@@ -368,15 +371,15 @@ export default function WirelessExplorer() {
                   width="251"
                   height="78"
                   rx="6"
-                  fill="#0d1117"
-                  stroke="#8b949e"
+                  fill="var(--card-bg)"
+                  stroke="var(--text-muted)"
                   strokeWidth="2"
                 />
                 <text
                   x="1080.5"
                   y="635"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="12"
                   fontWeight="bold"
                 >
@@ -393,7 +396,7 @@ export default function WirelessExplorer() {
                   width="329"
                   height="391"
                   rx="8"
-                  fill="#0d1117"
+                  fill="var(--card-bg)"
                   stroke="#2979ff"
                   strokeWidth="2.5"
                 />
@@ -401,7 +404,7 @@ export default function WirelessExplorer() {
                   x="230.5"
                   y="585"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="13"
                   fontWeight="bold"
                 >
@@ -416,7 +419,7 @@ export default function WirelessExplorer() {
                     width="180"
                     height="54"
                     rx="4"
-                    fill="#161b22"
+                    fill="var(--bg-color)"
                     stroke="#2979ff"
                     strokeWidth="1.5"
                   />
@@ -424,7 +427,7 @@ export default function WirelessExplorer() {
                     x="269"
                     y="637"
                     textAnchor="middle"
-                    fill="#fff"
+                    fill="var(--text-main)"
                     fontSize="10.5"
                     fontWeight="bold"
                   >
@@ -438,7 +441,7 @@ export default function WirelessExplorer() {
                     cx="207"
                     cy="840"
                     r="70"
-                    fill="#161b22"
+                    fill="var(--bg-color)"
                     stroke="#2979ff"
                     strokeWidth="1.5"
                   />
@@ -446,7 +449,7 @@ export default function WirelessExplorer() {
                     x="207"
                     y="844"
                     textAnchor="middle"
-                    fill="#fff"
+                    fill="var(--text-main)"
                     fontSize="11"
                     fontWeight="bold"
                   >
@@ -463,7 +466,7 @@ export default function WirelessExplorer() {
                   width="321"
                   height="500"
                   rx="8"
-                  fill="#0d1117"
+                  fill="var(--card-bg)"
                   stroke="#1de9b6"
                   strokeWidth="2.5"
                 />
@@ -471,7 +474,7 @@ export default function WirelessExplorer() {
                   x="574.5"
                   y="762"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="13"
                   fontWeight="bold"
                 >
@@ -486,7 +489,7 @@ export default function WirelessExplorer() {
                     width="91"
                     height="54"
                     rx="4"
-                    fill="#161b22"
+                    fill="var(--bg-color)"
                     stroke="#1de9b6"
                     strokeWidth="1.5"
                   />
@@ -494,7 +497,7 @@ export default function WirelessExplorer() {
                     x="635.5"
                     y="845"
                     textAnchor="middle"
-                    fill="#fff"
+                    fill="var(--text-main)"
                     fontSize="10.5"
                     fontWeight="bold"
                   >
@@ -508,7 +511,7 @@ export default function WirelessExplorer() {
                     cx="595.5"
                     cy="1127.5"
                     r="70"
-                    fill="#161b22"
+                    fill="var(--bg-color)"
                     stroke="#1de9b6"
                     strokeWidth="1.5"
                   />
@@ -516,7 +519,7 @@ export default function WirelessExplorer() {
                     x="595.5"
                     y="1131.5"
                     textAnchor="middle"
-                    fill="#fff"
+                    fill="var(--text-main)"
                     fontSize="11"
                     fontWeight="bold"
                   >
@@ -533,7 +536,7 @@ export default function WirelessExplorer() {
                   width="475"
                   height="500"
                   rx="8"
-                  fill="#0d1117"
+                  fill="var(--card-bg)"
                   stroke="#ff1744"
                   strokeWidth="2.5"
                 />
@@ -541,7 +544,7 @@ export default function WirelessExplorer() {
                   x="993.5"
                   y="762"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="13"
                   fontWeight="bold"
                 >
@@ -556,7 +559,7 @@ export default function WirelessExplorer() {
                     width="158"
                     height="54"
                     rx="4"
-                    fill="#161b22"
+                    fill="var(--bg-color)"
                     stroke="#ff1744"
                     strokeWidth="1.5"
                   />
@@ -564,7 +567,7 @@ export default function WirelessExplorer() {
                     x="1081"
                     y="845"
                     textAnchor="middle"
-                    fill="#fff"
+                    fill="var(--text-main)"
                     fontSize="10.5"
                     fontWeight="bold"
                   >
@@ -580,7 +583,7 @@ export default function WirelessExplorer() {
                     width="158"
                     height="54"
                     rx="4"
-                    fill="#161b22"
+                    fill="var(--bg-color)"
                     stroke="#ff1744"
                     strokeWidth="1.5"
                   />
@@ -588,7 +591,7 @@ export default function WirelessExplorer() {
                     x="870"
                     y="845"
                     textAnchor="middle"
-                    fill="#fff"
+                    fill="var(--text-main)"
                     fontSize="10.5"
                     fontWeight="bold"
                   >
@@ -602,7 +605,7 @@ export default function WirelessExplorer() {
                     cx="889.5"
                     cy="1126.5"
                     r="48"
-                    fill="#161b22"
+                    fill="var(--bg-color)"
                     stroke="#ff1744"
                     strokeWidth="1.5"
                   />
@@ -610,7 +613,7 @@ export default function WirelessExplorer() {
                     x="889.5"
                     y="1130"
                     textAnchor="middle"
-                    fill="#fff"
+                    fill="var(--text-main)"
                     fontSize="10"
                     fontWeight="bold"
                   >
@@ -626,7 +629,7 @@ export default function WirelessExplorer() {
                     width="175"
                     height="63"
                     rx="4"
-                    fill="#161b22"
+                    fill="var(--bg-color)"
                     stroke="#ff1744"
                     strokeWidth="1.5"
                   />
@@ -634,7 +637,7 @@ export default function WirelessExplorer() {
                     x="1107.5"
                     y="1131"
                     textAnchor="middle"
-                    fill="#fff"
+                    fill="var(--text-main)"
                     fontSize="9.5"
                     fontWeight="bold"
                   >
@@ -658,7 +661,7 @@ export default function WirelessExplorer() {
                   >
                     <path
                       d={link.pathData}
-                      stroke={link.color || "#fff"}
+                      stroke={link.color || "var(--text-main)"}
                       strokeWidth={active ? "3.5" : "2"}
                       fill="none"
                       strokeDasharray={link.dashed ? "6,6" : "none"}
@@ -667,7 +670,7 @@ export default function WirelessExplorer() {
                       <text
                         x={getLinkLabelCoords(link.id).x}
                         y={getLinkLabelCoords(link.id).y}
-                        fill={link.color || "#fff"}
+                        fill={link.color || "var(--text-main)"}
                         textAnchor={
                           link.id === "client-ap" ||
                           link.id === "switch-cyberswitch" ||
@@ -702,15 +705,15 @@ export default function WirelessExplorer() {
                   cx="781.5"
                   cy="74.5"
                   r="54.5"
-                  fill="#0d1117"
-                  stroke={selectedDevice?.id === "client" ? "#fff" : "#a07cf8"}
+                  fill="var(--card-bg)"
+                  stroke={selectedDevice?.id === "client" ? "var(--text-main)" : "#a07cf8"}
                   strokeWidth={selectedDevice?.id === "client" ? 3.5 : 2.5}
                 />
                 <text
                   x="781.5"
                   y="78.5"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="11.5"
                   fontWeight="bold"
                 >
@@ -734,15 +737,15 @@ export default function WirelessExplorer() {
                   width="196"
                   height="54"
                   rx="6"
-                  fill="#0d1117"
-                  stroke={selectedDevice?.id === "ap" ? "#fff" : "#00e5ff"}
+                  fill="var(--card-bg)"
+                  stroke={selectedDevice?.id === "ap" ? "var(--text-main)" : "#00e5ff"}
                   strokeWidth={selectedDevice?.id === "ap" ? 3.5 : 2.5}
                 />
                 <text
                   x="782"
                   y="234.5"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="12"
                   fontWeight="bold"
                 >
@@ -766,15 +769,15 @@ export default function WirelessExplorer() {
                   width="242"
                   height="54"
                   rx="6"
-                  fill="#0d1117"
-                  stroke={selectedDevice?.id === "switch" ? "#fff" : "#00b0ff"}
+                  fill="var(--card-bg)"
+                  stroke={selectedDevice?.id === "switch" ? "var(--text-main)" : "#00b0ff"}
                   strokeWidth={selectedDevice?.id === "switch" ? 3.5 : 2.5}
                 />
                 <text
                   x="1424"
                   y="423.5"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="12"
                   fontWeight="bold"
                 >
@@ -798,9 +801,9 @@ export default function WirelessExplorer() {
                   width="260"
                   height="102"
                   rx="6"
-                  fill="#0d1117"
+                  fill="var(--card-bg)"
                   stroke={
-                    selectedDevice?.id === "cyberswitch" ? "#fff" : "#ffab40"
+                    selectedDevice?.id === "cyberswitch" ? "var(--text-main)" : "#ffab40"
                   }
                   strokeWidth={selectedDevice?.id === "cyberswitch" ? 3.5 : 2.5}
                 />
@@ -808,7 +811,7 @@ export default function WirelessExplorer() {
                   x="1424"
                   y="622"
                   textAnchor="middle"
-                  fill="#fff"
+                  fill="var(--text-main)"
                   fontSize="12.5"
                   fontWeight="bold"
                 >
@@ -818,7 +821,7 @@ export default function WirelessExplorer() {
                   x="1424"
                   y="642"
                   textAnchor="middle"
-                  fill="#8b949e"
+                  fill="var(--text-muted)"
                   fontSize="10"
                 >
                   Instructor Gateway / Internet
@@ -834,7 +837,7 @@ export default function WirelessExplorer() {
             marginTop: "15px",
             minHeight: "140px",
             padding: "16px",
-            backgroundColor: "#161b22",
+            backgroundColor: "var(--bg-color)",
             borderRadius: "8px",
             border: "1px solid #333",
             display: "flex",
@@ -879,7 +882,7 @@ export default function WirelessExplorer() {
                         padding: "2px 6px",
                         backgroundColor: "#333",
                         borderRadius: "10px",
-                        color: "#888",
+                        color: "#fff",
                         fontWeight: "bold",
                       }}
                     >
@@ -890,7 +893,7 @@ export default function WirelessExplorer() {
                 <p
                   style={{
                     margin: "8px 0 0 0",
-                    color: "#ccc",
+                    color: "var(--text-main)",
                     fontSize: "0.85rem",
                     lineHeight: "1.5",
                   }}
@@ -912,7 +915,7 @@ export default function WirelessExplorer() {
                     style={{
                       margin: "0 0 8px 0",
                       fontSize: "0.75rem",
-                      color: "#8b949e",
+                      color: "var(--text-main)",
                       textTransform: "uppercase",
                       letterSpacing: "0.5px",
                     }}
@@ -930,7 +933,7 @@ export default function WirelessExplorer() {
                       <div
                         key={i}
                         style={{
-                          backgroundColor: "#161b22",
+                          backgroundColor: "var(--bg-color)",
                           border: "1px solid #21262d",
                           padding: "8px 12px",
                           borderRadius: "6px",
@@ -945,12 +948,12 @@ export default function WirelessExplorer() {
                             marginBottom: "2px",
                           }}
                         >
-                          <span style={{ color: "#fff" }}>{inf.name}</span>
+                          <span style={{ color: "var(--text-main)" }}>{inf.name}</span>
                           <span style={{ color: selectedDevice.color }}>
                             {inf.ip}
                           </span>
                         </div>
-                        <div style={{ color: "#8b949e", fontSize: "0.75rem" }}>
+                        <div style={{ color: "var(--text-main)", fontSize: "0.75rem" }}>
                           {inf.desc}
                         </div>
                       </div>
@@ -963,7 +966,7 @@ export default function WirelessExplorer() {
                     style={{
                       margin: "0 0 8px 0",
                       fontSize: "0.75rem",
-                      color: "#8b949e",
+                      color: "var(--text-main)",
                       textTransform: "uppercase",
                       letterSpacing: "0.5px",
                     }}
@@ -983,10 +986,10 @@ export default function WirelessExplorer() {
                         style={{
                           padding: "8px 12px",
                           borderLeft: `3px solid ${selectedDevice.color}`,
-                          backgroundColor: "#161b22",
+                          backgroundColor: "var(--bg-color)",
                           borderRadius: "0 4px 4px 0",
                           fontSize: "0.8rem",
-                          color: "#c9d1d9",
+                          color: "var(--text-main)",
                         }}
                       >
                         {conf}
@@ -1003,7 +1006,7 @@ export default function WirelessExplorer() {
                 alignItems: "center",
                 justifyContent: "center",
                 height: "100px",
-                color: "#666",
+                color: "var(--text-main)",
                 fontSize: "0.9rem",
               }}
             >

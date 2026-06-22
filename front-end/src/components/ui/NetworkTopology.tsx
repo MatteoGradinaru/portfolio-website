@@ -23,37 +23,37 @@ export default function NetworkTopology({ type }: NetworkTopologyProps) {
           <div className="network-line"></div>
           <div
             className="network-node pulse"
-            style={{ backgroundColor: "#0070f3" }}
+            style={{ backgroundColor: "var(--node-blue)" }}
           >
             EDGE
           </div>
           <div className="network-line"></div>
           <div
             className="network-node pulse"
-            style={{ backgroundColor: "#ff0080" }}
+            style={{ backgroundColor: "var(--node-magenta)" }}
           >
             CORE
           </div>
         </div>
       ) : (
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <div className="network-node" style={{ backgroundColor: "#444" }}>
+          <div className="network-node" style={{ backgroundColor: "var(--node-dark)" }}>
             CE
           </div>
           <div className="network-line-horizontal pulse-line"></div>
-          <div className="network-node" style={{ backgroundColor: "#0070f3" }}>
+          <div className="network-node" style={{ backgroundColor: "var(--node-blue)" }}>
             PE
           </div>
           <div className="network-line-horizontal pulse-line"></div>
-          <div className="network-node" style={{ backgroundColor: "#ff0080" }}>
+          <div className="network-node" style={{ backgroundColor: "var(--node-magenta)" }}>
             P-Core
           </div>
           <div className="network-line-horizontal pulse-line"></div>
-          <div className="network-node" style={{ backgroundColor: "#0070f3" }}>
+          <div className="network-node" style={{ backgroundColor: "var(--node-blue)" }}>
             PE
           </div>
           <div className="network-line-horizontal pulse-line"></div>
-          <div className="network-node" style={{ backgroundColor: "#444" }}>
+          <div className="network-node" style={{ backgroundColor: "var(--node-dark)" }}>
             CE
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function NetworkTopology({ type }: NetworkTopologyProps) {
         .network-node {
           width: 60px;
           height: 40px;
-          background-color: #333;
+          background-color: var(--node-dark);
           color: white;
           display: flex;
           align-items: center;
@@ -75,26 +75,26 @@ export default function NetworkTopology({ type }: NetworkTopologyProps) {
         .network-line {
           width: 2px;
           height: 20px;
-          background-color: #ccc;
+          background-color: var(--border-color);
           margin: 0 auto;
         }
         .network-line-horizontal {
           width: 30px;
           height: 2px;
-          background-color: #ccc;
+          background-color: var(--border-color);
         }
         .pulse {
           animation: pulse 2s infinite;
         }
         @keyframes pulse {
           0% {
-            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 0 0 var(--text-light);
           }
           70% {
-            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 10px transparent;
           }
           100% {
-            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 transparent;
           }
         }
         .pulse-line {
@@ -102,13 +102,13 @@ export default function NetworkTopology({ type }: NetworkTopologyProps) {
         }
         @keyframes pulseLine {
           0% {
-            background-color: #ccc;
+            background-color: var(--border-color);
           }
           50% {
-            background-color: #0070f3;
+            background-color: var(--node-blue);
           }
           100% {
-            background-color: #ccc;
+            background-color: var(--border-color);
           }
         }
       `}</style>
