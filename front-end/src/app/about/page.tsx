@@ -5,12 +5,12 @@ export default function About() {
     <section className="section">
       <h2
         className="section-title"
-        style={{ fontSize: "2.5rem", marginBottom: "20px", color: "#000" }}
+        style={{ fontSize: "2.5rem", marginBottom: "20px", color: "var(--heading-color)" }}
       >
         About Me
       </h2>
 
-      <div style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "#444" }}>
+      <div style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-main)" }}>
         <p style={{ marginBottom: "20px" }}>
           Hi, I am Matteo! I am currently in my second year studying Applied
           Computer Science at UC Leuven Limburg (UCLL) in Belgium.
@@ -41,14 +41,14 @@ export default function About() {
       >
         <div
           style={{
-            background: "#f8f9fa",
+            background: "var(--card-bg)",
             padding: "20px",
             borderRadius: "8px",
-            borderLeft: "4px solid #0070f3",
+            borderLeft: "4px solid var(--node-blue)",
           }}
         >
           <h3
-            style={{ fontSize: "1.15rem", marginBottom: "10px", color: "#000" }}
+            style={{ fontSize: "1.15rem", marginBottom: "10px", color: "var(--heading-color)" }}
           >
             Infrastructure & Networks
           </h3>
@@ -57,7 +57,7 @@ export default function About() {
               paddingLeft: "20px",
               margin: 0,
               fontSize: "0.95rem",
-              color: "#555",
+              color: "var(--text-muted)",
               lineHeight: "1.6",
             }}
           >
@@ -71,14 +71,14 @@ export default function About() {
 
         <div
           style={{
-            background: "#f8f9fa",
+            background: "var(--card-bg)",
             padding: "20px",
             borderRadius: "8px",
-            borderLeft: "4px solid #2979ff",
+            borderLeft: "4px solid var(--node-cyan)",
           }}
         >
           <h3
-            style={{ fontSize: "1.15rem", marginBottom: "10px", color: "#000" }}
+            style={{ fontSize: "1.15rem", marginBottom: "10px", color: "var(--heading-color)" }}
           >
             Software & Development
           </h3>
@@ -87,7 +87,7 @@ export default function About() {
               paddingLeft: "20px",
               margin: 0,
               fontSize: "0.95rem",
-              color: "#555",
+              color: "var(--text-muted)",
               lineHeight: "1.6",
             }}
           >
@@ -104,12 +104,12 @@ export default function About() {
         style={{
           fontSize: "1.1rem",
           lineHeight: "1.7",
-          color: "#444",
-          borderTop: "1px solid #eee",
+          color: "var(--text-main)",
+          borderTop: "1px solid var(--border-color)",
           paddingTop: "30px",
         }}
       >
-        <h3 style={{ fontSize: "1.4rem", color: "#000", marginBottom: "10px" }}>
+        <h3 style={{ fontSize: "1.4rem", color: "var(--heading-color)", marginBottom: "10px" }}>
           My Learning Philosophy
         </h3>
         <p>Text...</p>

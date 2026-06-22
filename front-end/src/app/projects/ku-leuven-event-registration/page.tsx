@@ -53,12 +53,12 @@ export default function KuLeuvenEventRegistration() {
             display: "inline-flex",
             alignItems: "center",
             gap: "6px",
-            color: "#666",
+            color: "var(--text-muted)",
             fontSize: "0.95rem",
             transition: "color 0.2s",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#0070f3")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--node-blue)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
         >
           ← Back to Projects
         </Link>
@@ -66,13 +66,13 @@ export default function KuLeuvenEventRegistration() {
 
       <h1
         className="section-title"
-        style={{ margin: "10px 0 5px 0", color: "#000" }}
+        style={{ margin: "10px 0 5px 0", color: "var(--heading-color)" }}
       >
         KU Leuven Event Registration & Attendance Management System
       </h1>
       <p
         style={{
-          color: "#a07cf8",
+          color: "var(--node-purple)",
           fontWeight: "600",
           fontSize: "1rem",
           marginBottom: "15px",
@@ -83,7 +83,7 @@ export default function KuLeuvenEventRegistration() {
 
       <div
         style={{
-          color: "#555",
+          color: "var(--text-main)",
           fontSize: "1.05rem",
           lineHeight: "1.6",
           marginBottom: "30px",
@@ -111,10 +111,10 @@ export default function KuLeuvenEventRegistration() {
       </div>
 
       <div style={{ margin: "40px 0" }}>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "10px" }}>
+        <h2 style={{ fontSize: "1.5rem", marginBottom: "10px", color: "var(--heading-color)" }}>
           System Screenshots
         </h2>
-        <p style={{ color: "#666", fontSize: "0.9rem", marginBottom: "15px" }}>
+        <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "15px" }}>
           Click on any slide to open the fullscreen lightbox viewer and browse
           the system interfaces:
         </p>
@@ -143,8 +143,8 @@ export default function KuLeuvenEventRegistration() {
                 position: "relative",
                 borderRadius: "8px",
                 overflow: "hidden",
-                border: "1px solid #ddd",
-                backgroundColor: "#161b22",
+                border: "1px solid var(--border-color)",
+                backgroundColor: "var(--card-bg)",
                 aspectRatio: "16/9",
                 cursor: "pointer",
                 transition: "transform 0.2s, box-shadow 0.2s",
@@ -183,11 +183,11 @@ export default function KuLeuvenEventRegistration() {
       <div
         style={{
           marginTop: "40px",
-          borderTop: "1px solid #eee",
+          borderTop: "1px solid var(--border-color)",
           paddingTop: "30px",
         }}
       >
-        <h3 style={{ marginBottom: "15px" }}>
+        <h3 style={{ marginBottom: "15px", color: "var(--heading-color)" }}>
           Technical Highlights & Features
         </h3>
         <ul
@@ -200,56 +200,56 @@ export default function KuLeuvenEventRegistration() {
         >
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #a07cf8",
+              borderLeft: "4px solid var(--node-purple)",
             }}
           >
-            <strong>Conversational Chat Form</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>Conversational Chat Form</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Replaced static registration inputs with a dynamic conversational
               UI. Enforces a 10-minute timeout reservation window.
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #a07cf8",
+              borderLeft: "4px solid var(--node-purple)",
             }}
           >
-            <strong>Secure QR Code Generator</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>Secure QR Code Generator</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Leveraged Java ZXing libraries and mail-send profiles to construct
               encrypted token QR attachments in automated HTML emails.
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #a07cf8",
+              borderLeft: "4px solid var(--node-purple)",
             }}
           >
-            <strong>In-Browser Camera Scanning</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>In-Browser Camera Scanning</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Integrated camera readers with custom audio chime feedback and
               duplicate-scan protection to enable smooth reception operations.
             </p>
           </li>
           <li
             style={{
-              background: "#f8f9fa",
+              background: "var(--card-bg)",
               padding: "15px",
               borderRadius: "8px",
-              borderLeft: "4px solid #a07cf8",
+              borderLeft: "4px solid var(--node-purple)",
             }}
           >
-            <strong>Security & Imports</strong>
-            <p style={{ fontSize: "0.9rem", color: "#666", marginTop: "5px" }}>
+            <strong style={{ color: "var(--heading-color)" }}>Security & Imports</strong>
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", marginTop: "5px" }}>
               Configured JWT stateless route policies in Spring Security, XML
               parser uploads using Jackson XmlMapper, and PostgreSQL databases.
             </p>
