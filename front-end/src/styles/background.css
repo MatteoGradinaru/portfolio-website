@@ -8,8 +8,9 @@
   height: 100vh;
   z-index: -2;
   overflow: hidden;
-  background-color: #f7f7f9; /* subtle pale off-white base */
+  background-color: var(--bg-color); /* background color transitions with theme */
   pointer-events: none;
+  transition: background-color 0.3s ease;
 }
 
 .bg-blob {
@@ -28,10 +29,11 @@
   height: 75vw;
   max-width: 900px;
   max-height: 900px;
-  background-color: #cce0ff; /* soft pastel blue */
+  background-color: var(--blob-blue); /* soft pastel blue */
   top: -20vh;
   left: -20vw;
   animation: float-blue 35s infinite alternate ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 /* Washed-out pastel lavender (matching the event registration project accent) */
@@ -40,10 +42,11 @@
   height: 80vw;
   max-width: 1000px;
   max-height: 1000px;
-  background-color: #e9d7ff; /* soft pastel lavender */
+  background-color: var(--blob-lavender); /* soft pastel lavender */
   bottom: -25vh;
   right: -20vw;
   animation: float-lavender 42s infinite alternate ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 /* Washed-out pastel warm apricot/orange (matching the smart firetruck project accent) */
@@ -52,10 +55,11 @@
   height: 60vw;
   max-width: 800px;
   max-height: 800px;
-  background-color: #ffe8cc; /* soft pastel warm apricot */
+  background-color: var(--blob-pastel); /* soft pastel warm apricot */
   top: 30vh;
   left: 25vw;
   animation: float-pastel 38s infinite alternate ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 /* Frosted glass overlay with heavy matte finish */
@@ -67,9 +71,10 @@
   height: 100vh;
   z-index: -1;
   pointer-events: none;
-  background: rgba(255, 255, 255, 0.3); /* slightly transparent to let colors show through */
+  background: var(--glass-overlay); /* slightly transparent to let colors show through */
   backdrop-filter: blur(70px);
   -webkit-backdrop-filter: blur(70px);
+  transition: background 0.3s ease;
 }
 
 /* Micro-grain texture overlay for a heavy matte finish */
