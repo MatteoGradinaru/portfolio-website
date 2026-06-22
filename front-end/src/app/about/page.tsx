@@ -28,7 +28,7 @@ export default function About() {
         </p>
 
         <p style={{ marginBottom: "35px" }}>
-          Alongside infrastructure engineering, my curriculum equips me with a
+          Alongside infrastructure engineering, my courses equips me with a
           strong foundation in modern software development. I have experience
           working with core developer technologies including:
         </p>
@@ -115,13 +115,7 @@ export default function About() {
         <h3 style={{ fontSize: "1.4rem", color: "#000", marginBottom: "10px" }}>
           My Learning Philosophy
         </h3>
-        <p>
-          I believe that the best way to master infrastructure engineering is by
-          building it. Whether it is configuring virtual routers in GNS3,
-          setting up firewalls on Proxmox hypervisors, or orchestrating
-          containers in Kubernetes clusters, I enjoy bridging the gap between
-          hardware configurations and frontend dashboards.
-        </p>
+        <p>Text...</p>
       </div>
     </section>
   );
