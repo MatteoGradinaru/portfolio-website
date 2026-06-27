@@ -1,0 +1,38 @@
+name: CD pipeline - deploy
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "26"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Next.js App
+        run: npm run build
+
+      - name: Move files to Apache Web Directory
+        run: |
+          sudo rsync -av --delete ./ /var/www/portfolio/
+          sudo chown -R mg:mg /var/www/portfolio
+
+      - name: Restart PM2 Server
+        run: |
+          cd /var/www/portfolio
+          pm2 restart portfolio-app || pm2 start npm --name "portfolio-app" -- start
+          pm2 save
