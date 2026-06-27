@@ -40,3 +40,4 @@ back-end/bin/
 
 back-end/hs_err_pid*
 back-end/replay_pid*
+back-end/application.yml
