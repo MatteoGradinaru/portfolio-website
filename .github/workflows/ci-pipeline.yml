@@ -7,6 +7,11 @@ on:
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./front-end
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
