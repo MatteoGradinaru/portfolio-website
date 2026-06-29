@@ -29,7 +29,13 @@ My personal portfolio website built with Next.js, React, and TypeScript. It show
    npm install
    ```
 
-3. Start the development server:
+3. Create a `.env` (or `.env.local`) file in the `front-end` directory and configure your email address:
+
+   ```env
+   NEXT_PUBLIC_CONTACT_EMAIL=your.email@example.com
+   ```
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
