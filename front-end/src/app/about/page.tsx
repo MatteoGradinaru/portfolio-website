@@ -5,12 +5,22 @@ export default function About() {
     <section className="section">
       <h2
         className="section-title"
-        style={{ fontSize: "2.5rem", marginBottom: "20px", color: "var(--heading-color)" }}
+        style={{
+          fontSize: "2.5rem",
+          marginBottom: "20px",
+          color: "var(--heading-color)",
+        }}
       >
         About Me
       </h2>
 
-      <div style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-main)" }}>
+      <div
+        style={{
+          fontSize: "1.1rem",
+          lineHeight: "1.7",
+          color: "var(--text-main)",
+        }}
+      >
         <p style={{ marginBottom: "20px" }}>
           Hi, I am Matteo! I am currently in my second year studying Applied
           Computer Science at UC Leuven Limburg (UCLL) in Belgium.
@@ -25,7 +35,7 @@ export default function About() {
         </p>
 
         <p style={{ marginBottom: "35px" }}>
-          Alongside infrastructure engineering, my courses equips me with a
+          Alongside infrastructure engineering, my courses equip me with a
           strong foundation in modern software development. I have experience
           working with core developer technologies including:
         </p>
@@ -48,7 +58,11 @@ export default function About() {
           }}
         >
           <h3
-            style={{ fontSize: "1.15rem", marginBottom: "10px", color: "var(--heading-color)" }}
+            style={{
+              fontSize: "1.15rem",
+              marginBottom: "10px",
+              color: "var(--heading-color)",
+            }}
           >
             Infrastructure & Networks
           </h3>
@@ -78,7 +92,11 @@ export default function About() {
           }}
         >
           <h3
-            style={{ fontSize: "1.15rem", marginBottom: "10px", color: "var(--heading-color)" }}
+            style={{
+              fontSize: "1.15rem",
+              marginBottom: "10px",
+              color: "var(--heading-color)",
+            }}
           >
             Software & Development
           </h3>
@@ -108,12 +126,7 @@ export default function About() {
           borderTop: "1px solid var(--border-color)",
           paddingTop: "30px",
         }}
-      >
-        <h3 style={{ fontSize: "1.4rem", color: "var(--heading-color)", marginBottom: "10px" }}>
-          My Learning Philosophy
-        </h3>
-        <p>Text...</p>
-      </div>
+      ></div>
     </section>
   );
 }

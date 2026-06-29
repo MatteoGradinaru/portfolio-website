@@ -1,6 +1,27 @@
-import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
+"use client";
+
+import { useState } from "react";
+import {
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+  FaCopy,
+  FaCheck,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "testmail@example.com";
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section
       className="section"
@@ -27,27 +48,93 @@ export default function Contact() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
         {/* Email */}
-        <a
-          href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}
-          style={linkStyle}
+        <div
+          className="contact-card"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
-          <div style={iconWrapperStyle}>
-            <FaEnvelope size={24} color="var(--heading-color)" />
-          </div>
-          <span style={textStyle}>Email me</span>
-        </a>
+          <a
+            href={`mailto:${email}`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "15px",
+              flexGrow: 1,
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
+            <div className="contact-icon-wrapper">
+              <FaEnvelope size={24} color="var(--heading-color)" />
+            </div>
+            <div>
+              <span className="contact-text-label">Email</span>
+              <span className="contact-text-value">{email}</span>
+            </div>
+          </a>
+
+          <button
+            onClick={handleCopy}
+            className="contact-copy-btn"
+            title="Copy to clipboard"
+            aria-label="Copy email to clipboard"
+          >
+            {copied ? (
+              <>
+                <FaCheck size={16} color="#10B981" />
+                <span
+                  style={{
+                    fontSize: "0.9rem",
+                    color: "#10B981",
+                    fontWeight: 600,
+                  }}
+                >
+                  Copied!
+                </span>
+              </>
+            ) : (
+              <>
+                <FaCopy size={16} color="var(--heading-color)" />
+                <span
+                  style={{ fontSize: "0.9rem", color: "var(--heading-color)" }}
+                >
+                  Copy
+                </span>
+              </>
+            )}
+          </button>
+        </div>
 
         {/* LinkedIn */}
         <a
           href="https://www.linkedin.com/in/gradinaru-matteo"
           target="_blank"
           rel="noopener noreferrer"
-          style={linkStyle}
+          className="contact-card"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
-          <div style={iconWrapperStyle}>
-            <FaLinkedin size={24} color="var(--heading-color)" />
+          <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+            <div className="contact-icon-wrapper">
+              <FaLinkedin size={24} color="var(--heading-color)" />
+            </div>
+            <div>
+              <span className="contact-text-label">LinkedIn</span>
+              <span className="contact-text-value">gradinaru-matteo</span>
+            </div>
           </div>
-          <span style={textStyle}>LinkedIn profile</span>
+
+          <FaExternalLinkAlt
+            size={16}
+            color="var(--heading-color)"
+            style={{ opacity: 0.6, marginRight: "5px" }}
+          />
         </a>
 
         {/* GitHub */}
@@ -55,45 +142,30 @@ export default function Contact() {
           href="https://github.com/MatteoGradinaru-UCLL"
           target="_blank"
           rel="noopener noreferrer"
-          style={linkStyle}
+          className="contact-card"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
-          <div style={iconWrapperStyle}>
-            <FaGithub size={24} color="var(--heading-color)" />
+          <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+            <div className="contact-icon-wrapper">
+              <FaGithub size={24} color="var(--heading-color)" />
+            </div>
+            <div>
+              <span className="contact-text-label">GitHub</span>
+              <span className="contact-text-value">MatteoGradinaru-UCLL</span>
+            </div>
           </div>
-          <span style={textStyle}>GitHub repositories</span>
+
+          <FaExternalLinkAlt
+            size={16}
+            color="var(--heading-color)"
+            style={{ opacity: 0.6, marginRight: "5px" }}
+          />
         </a>
       </div>
     </section>
   );
 }
-
-// Styling objects for cleaner JSX
-const linkStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "15px",
-  padding: "15px 25px",
-  borderRadius: "12px",
-  backgroundColor: "rgba(128, 128, 128, 0.08)", // Works nicely in light & dark mode
-  textDecoration: "none",
-  color: "inherit",
-  transition: "all 0.2s ease-in-out",
-  border: "1px solid rgba(128, 128, 128, 0.2)",
-  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
-};
-
-const iconWrapperStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "48px",
-  height: "48px",
-  borderRadius: "50%",
-  backgroundColor: "rgba(128, 128, 128, 0.15)",
-};
-
-const textStyle = {
-  fontSize: "1.2rem",
-  fontWeight: 500,
-  color: "var(--heading-color)",
-};
