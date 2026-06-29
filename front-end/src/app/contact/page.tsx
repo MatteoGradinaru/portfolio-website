@@ -41,9 +41,8 @@ export default function Contact() {
           color: "var(--text-color, #555)",
         }}
       >
-        I'm always open to discussing new projects, creative ideas or
-        opportunities to be part of your visions. Feel free to reach out through
-        any of the platforms below!
+        The best projects start with a simple conversation. Find me on any of
+        the platforms below and let’s connect.
       </p>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>

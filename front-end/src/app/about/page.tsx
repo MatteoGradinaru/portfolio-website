@@ -22,11 +22,6 @@ export default function About() {
         }}
       >
         <p style={{ marginBottom: "20px" }}>
-          Hi, I am Matteo! I am currently in my second year studying Applied
-          Computer Science at UC Leuven Limburg (UCLL) in Belgium.
-        </p>
-
-        <p style={{ marginBottom: "20px" }}>
           I have chosen IT-Infrastructure as my specialization. I have a deep
           passion for understanding how systems connect and how data is
           transferred securely. I particularly enjoy hands-on courses in
