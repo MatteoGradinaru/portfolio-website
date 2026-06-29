@@ -138,7 +138,7 @@ export default function Contact() {
 
         {/* GitHub */}
         <a
-          href="https://github.com/MatteoGradinaru-UCLL"
+          href="https://github.com/MatteoGradinaru"
           target="_blank"
           rel="noopener noreferrer"
           className="contact-card"
@@ -154,7 +154,7 @@ export default function Contact() {
             </div>
             <div>
               <span className="contact-text-label">GitHub</span>
-              <span className="contact-text-value">MatteoGradinaru-UCLL</span>
+              <span className="contact-text-value">MatteoGradinaru</span>
             </div>
           </div>
 
