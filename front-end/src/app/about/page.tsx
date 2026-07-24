@@ -16,7 +16,7 @@ export default function About() {
 
       <div
         style={{
-          fontSize: "1.1rem",
+          fontSize: "1.15rem",
           lineHeight: "1.7",
           color: "var(--text-main)",
         }}
@@ -24,9 +24,9 @@ export default function About() {
         <p style={{ marginBottom: "20px" }}>
           I have chosen IT-Infrastructure as my specialization. I have a deep
           passion for understanding how systems connect and how data is
-          transferred securely. I particularly enjoy hands-on courses in
-          Advanced Networking & Security and Wireless Communication, where I get
-          to construct and troubleshoot virtual and physical topologies.
+          transferred securely. I particularly enjoy hands-on courses related to
+          networking, where I get to construct and troubleshoot virtual and
+          physical topologies.
         </p>
 
         <p style={{ marginBottom: "35px" }}>
@@ -63,7 +63,8 @@ export default function About() {
           </h3>
           <ul
             style={{
-              paddingLeft: "20px",
+              listStyle: "none",
+              padding: 0,
               margin: 0,
               fontSize: "0.95rem",
               color: "var(--text-muted)",
@@ -97,7 +98,8 @@ export default function About() {
           </h3>
           <ul
             style={{
-              paddingLeft: "20px",
+              listStyle: "none",
+              padding: 0,
               margin: 0,
               fontSize: "0.95rem",
               color: "var(--text-muted)",
@@ -112,8 +114,6 @@ export default function About() {
           </ul>
         </div>
       </div>
-
-
     </section>
   );
 }

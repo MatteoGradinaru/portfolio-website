@@ -5,7 +5,13 @@ export default function Home() {
       <p className="hero-subtitle">
         Final-year Applied Computer Science student at UC Leuven Limburg.
       </p>
-      <p>
+      <p
+        style={{
+          fontSize: "1.15rem",
+          lineHeight: "1.7",
+          color: "var(--text-main)",
+        }}
+      >
         I specialize in IT-Infrastructure with a strong interest in Advanced
         Networking & Security, Wireless Communication, Cloud and Infrastructure.
         I enjoy building secure, scalable networks web-apps, configuring servers

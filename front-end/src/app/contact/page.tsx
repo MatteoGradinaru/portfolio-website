@@ -36,9 +36,9 @@ export default function Contact() {
       <p
         style={{
           marginBottom: "40px",
-          fontSize: "1.1rem",
-          lineHeight: "1.6",
-          color: "var(--text-color, #555)",
+          fontSize: "1.15rem",
+          lineHeight: "1.7",
+          color: "var(--text-main)",
         }}
       >
         The best projects start with a simple conversation. Find me on any of

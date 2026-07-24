@@ -68,21 +68,27 @@ export default function Projects() {
       <div style={{ textAlign: "left", marginBottom: "50px" }}>
         <h1
           className="section-title"
-          style={{ fontSize: "2.5rem", marginBottom: "15px", color: "var(--heading-color)" }}
+          style={{
+            fontSize: "2.5rem",
+            marginBottom: "15px",
+            color: "var(--heading-color)",
+          }}
         >
           My Projects
         </h1>
         <p
           style={{
             fontSize: "1.15rem",
-            color: "var(--text-muted)",
+            color: "var(--text-main)",
             maxWidth: "700px",
-            lineHeight: "1.6",
+            lineHeight: "1.7",
           }}
         >
-          Here is a selection of the projects I've worked on during my courses at UCLL. 
-          They cover everything from setting up enterprise routing tables and configuring secure wireless networks 
-          to building full-stack applications. Click on any card below to read the details or play around with the interactive topologies.
+          Here is a selection of the projects I've worked on. They cover
+          everything from setting up enterprise routing tables and configuring
+          secure wireless networks to building full-stack applications and
+          working with IoT devices. Click on any card below to read the details
+          or play around with the interactive topologies.
         </p>
       </div>
 
@@ -202,7 +208,8 @@ export default function Projects() {
                   e.currentTarget.style.color = "#fff";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "var(--heading-color)";
+                  e.currentTarget.style.backgroundColor =
+                    "var(--heading-color)";
                   e.currentTarget.style.color = "var(--inverse-text)";
                 }}
               >
