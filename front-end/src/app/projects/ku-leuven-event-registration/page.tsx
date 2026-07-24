@@ -199,11 +199,11 @@ export default function KuLeuvenEventRegistration() {
           }}
         >
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-purple)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Conversational Chat Form</strong>
@@ -213,11 +213,11 @@ export default function KuLeuvenEventRegistration() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-purple)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Secure QR Code Generator</strong>
@@ -227,11 +227,11 @@ export default function KuLeuvenEventRegistration() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-purple)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>In-Browser Camera Scanning</strong>
@@ -241,11 +241,11 @@ export default function KuLeuvenEventRegistration() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-purple)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Security & Imports</strong>

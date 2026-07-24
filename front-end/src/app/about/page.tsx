@@ -45,11 +45,11 @@ export default function About() {
         }}
       >
         <div
+          className="contact-card"
           style={{
-            background: "var(--card-bg)",
-            padding: "20px",
-            borderRadius: "8px",
-            borderLeft: "4px solid var(--node-blue)",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: 0,
           }}
         >
           <h3
@@ -79,11 +79,11 @@ export default function About() {
         </div>
 
         <div
+          className="contact-card"
           style={{
-            background: "var(--card-bg)",
-            padding: "20px",
-            borderRadius: "8px",
-            borderLeft: "4px solid var(--node-cyan)",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: 0,
           }}
         >
           <h3

@@ -91,11 +91,11 @@ export default function AdvancedEnterpriseRouting() {
           }}
         >
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-blue)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>IGP Core (IS-IS)</strong>
@@ -105,11 +105,11 @@ export default function AdvancedEnterpriseRouting() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-blue)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>MPLS / LDP</strong>
@@ -119,11 +119,11 @@ export default function AdvancedEnterpriseRouting() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-blue)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>MP-BGP & VPNv4</strong>
@@ -133,11 +133,11 @@ export default function AdvancedEnterpriseRouting() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-blue)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>CE-to-CE Security (IPsec)</strong>

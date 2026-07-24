@@ -97,11 +97,11 @@ export default function AutonomousSmartFiretruck() {
           }}
         >
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-orange)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Container Orchestration (OKD)</strong>
@@ -112,11 +112,11 @@ export default function AutonomousSmartFiretruck() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-orange)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Automated CI/CD</strong>
@@ -127,11 +127,11 @@ export default function AutonomousSmartFiretruck() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-orange)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>WebSocket Telemetry</strong>
@@ -142,11 +142,11 @@ export default function AutonomousSmartFiretruck() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-orange)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Reliability & Fallbacks</strong>

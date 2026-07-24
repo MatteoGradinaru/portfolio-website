@@ -96,11 +96,11 @@ export default function SecureEnterpriseWireless() {
           }}
         >
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-blue)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Cisco Catalyst WLC (9800-CL)</strong>
@@ -110,11 +110,11 @@ export default function SecureEnterpriseWireless() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-blue)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>FreeRADIUS (802.1X)</strong>
@@ -124,11 +124,11 @@ export default function SecureEnterpriseWireless() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-blue)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Firewall & Gateways</strong>
@@ -138,11 +138,11 @@ export default function SecureEnterpriseWireless() {
             </p>
           </li>
           <li
+            className="contact-card"
             style={{
-              background: "var(--card-bg)",
-              padding: "15px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--node-blue)",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: 0,
             }}
           >
             <strong style={{ color: "var(--heading-color)" }}>Physical VLAN trunking</strong>
