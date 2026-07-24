@@ -178,7 +178,7 @@ export default function Projects() {
                     backgroundColor: "var(--bg-color)",
                     padding: "3px 8px",
                     borderRadius: "4px",
-                    border: "1px solid var(--border-color)",
+                    border: `1px solid ${project.color}60`,
                   }}
                 >
                   {tag}
