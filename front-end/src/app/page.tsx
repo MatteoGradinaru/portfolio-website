@@ -7,9 +7,9 @@ export default function Home() {
       </p>
       <p>
         I specialize in IT-Infrastructure with a strong interest in Advanced
-        Networking & Security and Wireless Communication. I enjoy building
-        secure, scalable networks web-apps, configuring servers and exploring
-        the technical depths of modern communication systems.
+        Networking & Security, Wireless Communication, Cloud and Infrastructure.
+        I enjoy building secure, scalable networks web-apps, configuring servers
+        and exploring the technical depths of communication systems.
       </p>
     </section>
   );
