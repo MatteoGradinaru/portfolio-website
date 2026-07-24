@@ -96,25 +96,18 @@ export default function Projects() {
         {projectList.map((project) => (
           <div
             key={project.id}
+            className="contact-card"
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)";
               e.currentTarget.style.borderColor = project.color;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)";
-              e.currentTarget.style.borderColor = "var(--border-color)";
+              e.currentTarget.style.borderColor = "";
             }}
             style={{
-              display: "flex",
               flexDirection: "column",
-              background: "var(--card-bg)",
-              border: "1px solid var(--border-color)",
-              borderRadius: "12px",
-              padding: "24px",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-              transition:
-                "box-shadow 0.2s ease, border-color 0.2s ease",
+              alignItems: "stretch",
               height: "100%",
+              gap: 0,
             }}
           >
             {/* Specialization Badge */}

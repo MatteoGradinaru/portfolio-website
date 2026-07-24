@@ -199,7 +199,7 @@ export default function KuLeuvenEventRegistration() {
           }}
         >
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -213,7 +213,7 @@ export default function KuLeuvenEventRegistration() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -227,7 +227,7 @@ export default function KuLeuvenEventRegistration() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -241,7 +241,7 @@ export default function KuLeuvenEventRegistration() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",

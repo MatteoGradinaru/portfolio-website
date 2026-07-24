@@ -45,7 +45,7 @@ export default function About() {
         }}
       >
         <div
-          className="contact-card"
+          className="static-card"
           style={{
             flexDirection: "column",
             alignItems: "flex-start",
@@ -79,7 +79,7 @@ export default function About() {
         </div>
 
         <div
-          className="contact-card"
+          className="static-card"
           style={{
             flexDirection: "column",
             alignItems: "flex-start",
@@ -113,15 +113,7 @@ export default function About() {
         </div>
       </div>
 
-      <div
-        style={{
-          fontSize: "1.1rem",
-          lineHeight: "1.7",
-          color: "var(--text-main)",
-          borderTop: "1px solid var(--border-color)",
-          paddingTop: "30px",
-        }}
-      ></div>
+
     </section>
   );
 }

@@ -91,7 +91,7 @@ export default function AdvancedEnterpriseRouting() {
           }}
         >
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -105,7 +105,7 @@ export default function AdvancedEnterpriseRouting() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -119,7 +119,7 @@ export default function AdvancedEnterpriseRouting() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -133,7 +133,7 @@ export default function AdvancedEnterpriseRouting() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",

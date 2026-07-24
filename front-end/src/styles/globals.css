@@ -140,7 +140,7 @@ main {
 }
 
 /* Contact page styling */
-.contact-card {
+.contact-card, .static-card {
   display: flex;
   align-items: center;
   gap: 15px;

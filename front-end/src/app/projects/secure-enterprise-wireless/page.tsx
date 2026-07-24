@@ -96,7 +96,7 @@ export default function SecureEnterpriseWireless() {
           }}
         >
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -110,7 +110,7 @@ export default function SecureEnterpriseWireless() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -124,7 +124,7 @@ export default function SecureEnterpriseWireless() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -138,7 +138,7 @@ export default function SecureEnterpriseWireless() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",

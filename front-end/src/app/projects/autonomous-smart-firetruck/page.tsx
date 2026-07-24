@@ -97,7 +97,7 @@ export default function AutonomousSmartFiretruck() {
           }}
         >
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -112,7 +112,7 @@ export default function AutonomousSmartFiretruck() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -127,7 +127,7 @@ export default function AutonomousSmartFiretruck() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
@@ -142,7 +142,7 @@ export default function AutonomousSmartFiretruck() {
             </p>
           </li>
           <li
-            className="contact-card"
+            className="static-card"
             style={{
               flexDirection: "column",
               alignItems: "flex-start",
