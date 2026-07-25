@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /*.png$
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.webp$
+
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Pinterestbot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /

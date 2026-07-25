@@ -41,3 +41,8 @@ back-end/bin/
 back-end/hs_err_pid*
 back-end/replay_pid*
 back-end/application.yml
+
+# profile picture
+front-end/public/profile.jpg
+front-end/public/profile.jpeg
+front-end/public/profile.png

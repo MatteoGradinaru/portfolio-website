@@ -9,9 +9,19 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Matteo's Portfolio",
-  description: "Computer Science Student Portfolio",
+  description: "Applied Computer Science Student Portfolio",
   icons: {
     icon: "/icon.svg",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+    },
   },
 };
 
