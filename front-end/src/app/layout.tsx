@@ -8,8 +8,11 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
-  title: "Personal Portfolio",
+  title: "Matteo's Portfolio",
   description: "Computer Science Student Portfolio",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -25,11 +28,25 @@ export default function RootLayout({
           <div className="container">
             <header className="header">
               <div className="logo">
-                <Link href="/">
-                  <strong>Portfolio</strong>
+                <Link
+                  href="/"
+                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "monospace",
+                      fontWeight: "bold",
+                      color: "var(--primary-color, currentColor)",
+                    }}
+                  >
+                    &gt;_
+                  </span>
+                  <strong>Matteo's portfolio</strong>
                 </Link>
               </div>
-              <nav style={{ display: "flex", alignItems: "center", gap: "30px" }}>
+              <nav
+                style={{ display: "flex", alignItems: "center", gap: "30px" }}
+              >
                 <ul className="nav-links">
                   <li>
                     <Link href="/" className="nav-link">
@@ -59,9 +76,18 @@ export default function RootLayout({
             <main>{children}</main>
 
             <footer className="footer">
-              <p>
-                &copy; {new Date().getFullYear()} Personal portfolio. All rights
-                reserved.
+              <p
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "6px",
+                }}
+              >
+                <span>
+                  &copy; {new Date().getFullYear()} Personal portfolio. All
+                  rights reserved.
+                </span>
               </p>
             </footer>
           </div>
