@@ -65,12 +65,12 @@ const projectList = [
 export default function Projects() {
   return (
     <section className="section">
-      <div style={{ textAlign: "left", marginBottom: "50px" }}>
+      <div style={{ textAlign: "left", marginBottom: "45px" }}>
         <h1
           className="section-title"
           style={{
             fontSize: "2.5rem",
-            marginBottom: "15px",
+            marginBottom: "20px",
             color: "var(--heading-color)",
           }}
         >

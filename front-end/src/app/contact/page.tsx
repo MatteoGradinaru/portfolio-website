@@ -25,11 +25,15 @@ export default function Contact() {
   return (
     <section
       className="section"
-      style={{ textAlign: "left", maxWidth: "800px", padding: "40px 0" }}
+      style={{ textAlign: "left", maxWidth: "800px" }}
     >
       <h2
         className="section-title"
-        style={{ color: "var(--heading-color)", marginBottom: "20px" }}
+        style={{
+          fontSize: "2.5rem",
+          marginBottom: "20px",
+          color: "var(--heading-color)",
+        }}
       >
         Let's Connect
       </h2>
