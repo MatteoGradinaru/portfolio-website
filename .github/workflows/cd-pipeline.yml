@@ -35,7 +35,10 @@ jobs:
 
       - name: Move files to Apache Web Directory
         run: |
-          sudo rsync -av --delete --exclude='.env.local' ./ /var/www/portfolio/
+          sudo rsync -av --delete \
+            --exclude='.env.local' \
+            --exclude='public/profile.*' \
+            ./ /var/www/portfolio/
           sudo chown -R mg:mg /var/www/portfolio
 
       - name: Restart PM2 Server
