@@ -51,7 +51,7 @@ export default function RootLayout({
                   >
                     &gt;_
                   </span>
-                  <strong>Matteo's portfolio</strong>
+                  <strong>Matteo's Portfolio</strong>
                 </Link>
               </div>
               <nav

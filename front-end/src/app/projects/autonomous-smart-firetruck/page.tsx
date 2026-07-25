@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import FiretruckExplorer from "@/components/ui/FiretruckExplorer";
 
 export default function AutonomousSmartFiretruck() {
@@ -20,7 +21,7 @@ export default function AutonomousSmartFiretruck() {
           onMouseEnter={(e) => (e.currentTarget.style.color = "var(--node-blue)")}
           onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
         >
-          ← Back to Projects
+          <ArrowLeft size={16} /> Back to Projects
         </Link>
       </div>
 
