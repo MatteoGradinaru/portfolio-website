@@ -45,4 +45,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Contact
 
 - **LinkedIn**: [Matteo Gradinaru](https://www.linkedin.com/in/gradinaru-matteo)
-- **GitHub**: [MatteoGradinaru](https://github.com/MatteoGradinaru)
+- **GitHub**: [Matteo Gradinaru](https://github.com/matteogradinaru)
